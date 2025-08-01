@@ -1,0 +1,29 @@
+\newcommand{\SIOSU}{\acrshort{si}--\acrshort{osu}}
+\newcommand{\SIDOSPU}{\acrshort{si}--\acrshort{dospu}}
+
+\newcommand*{\thistitle}{
+\bgroup
+	\centering
+    {\fontsize{16pt}{17.2pt}\selectfont\bfseries Parametrizando un Sistema Informático para Obra Social Universitaria con un Motor de Reglas \par}
+	\vspace{0.5cm}
+    {\fontsize{14pt}{16.8pt}\selectfont\bfseries Iván Brocas, Mg. Alejandro Sánchez, Dr. Carlos Humberto Salgado \par}
+	{\fontsize{12pt}{14.4pt}\selectfont\bfseries\itshape Universidad Nacional de San Luis, Facultad de Ciencias Físico Matemática y Naturales \par}
+	\vspace{0.2cm}
+\egroup
+}
+
+\newcommand{\code}[1]{{\mintinline{java}{#1}}}
+\newcommand{\scode}[1]{{\small\code{#1}}}
+
+\let\originalacrfull\acrfull
+\RenewDocumentCommand{\acrfull}{m}{%
+  \ifglshasfield{user1}{#1}{%
+    \glsentrylong{#1} (\glsentryuseri{#1}, \glsentryshort{#1})%
+  }{%
+    \originalacrfull{#1}%
+  }%
+}
+
+\newcommand{\CenteredGraphic}[2]{%
+	{\centering \resizebox{#2\textwidth}{!}{\includegraphics{#1}} \\}
+}
