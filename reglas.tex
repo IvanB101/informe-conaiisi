@@ -1,0 +1,81 @@
+\section{Afiliaciones y cálculo de cuotas}
+
+Según lo establecido en \cite{CSOrd53}, además del personal docente y no docente de la \acrshort{unsl}, otras personas que cumplan con las condiciones dictadas también pueden afiliarse a \acrshort{dospu}.
+
+A raíz de esto, los afiliados se encuentran dividos en las categorías titular (\cref{sec:titular}), familiar (\cref{sec:familiar}) y voluntario adherente (\cref{sec:adherente}). Asimismo cada categoría está dividida en subcategorías, cada una utilizando distintas fórmulas o coeficientes en las mismas para el cálculo del aporte del afiliado. Las definciones de cada categoría y subcategoría se pueden encontrar en \cite{CSOrd53} art. 24.
+
+\subsection{Titular} \label{sec:titular}
+Dentro de la categoría titular se distingue entre obligatorio activo y voluntario jubilado.
+
+\subsubsection{Obligatorio activo} 
+Actualmente, este descuento no es cálculado por el \acrshort{si}, con lo cual está fuera del alcance de este trabajo.
+
+\subsubsection{Voluntario jubilado}
+Monto de la cuota (\cite{dospuRes21} art. 2 y Anexo I): 
+\begin{displaymath}
+0.02 * j_m + 0.05 * j_h
+\end{displaymath}
+
+, donde:
+\begin{itemize}
+    \item $j_m = \text{jubilación mínima}$
+    \item $j_h = \text{haber jubilatorio}$
+\end{itemize}
+
+En caso de que dos voluntarios jubilados se tengan vínculo de cónyuge o conviviente, se aplica un descuento del 30\% a la cuota del afiliado (cálculada con la fórmula expuesta para esta subcategoría) con menor haber percibido, quedando como 70\% del monto calculado.
+
+\subsection{Familiar} \label{sec:familiar}
+Los familiares de obligatorios activos son no aportantes.
+
+Por otra parte, para cónyuges y convivientes de voluntarios jubilados, su cuota es un 70 \% de la del afiliado titular (\cite{dospuRes21} art. 2 y Anexo I).
+
+\subsection{Voluntario adherente} \label{sec:adherente}
+Dentro de esta categoría, se distingue entre las subcategorías: pensionado, becarios y personal ad honorem de la \acrshort{unsl}, agente \acrshort{unsl} con licencia, ascendientes en primer grado (de un afiliado titular), hijos (que hayan dejado de reunir las condiciones de no aportantes), familiares adherentes, universitarios adherentes, ex-afiliados a \acrshort{dospu}, agentes vinculados a \acrshort{dospu} y adherente de edad avanzada.
+
+Según \cite{dospuRes21} art. 3 para los afiliados de esta categoría, a excepción de las subcategorías tratadas en los \crefrange{sssec:pensionado}{sssec:edad_avanzada}, el monto de la cuota se calcula como un porcentaje sobre el valor de referencia \acrshort{cmmu}. Los porcentajes se encuentran en el Anexo II de la referencia mencionada.
+
+La \acrfull{cmmu} se define en el 6 \% del sueldo total bruto de un Profesor Universitario Titular Exclusivo con Máxima Antigüedad (\cite{dospuRes21} art. 3).
+
+\subsubsection{Pensionado}\label{sssec:pensionado}
+Monto de la cuota (\cite{dospuRes21} art. 2 y Anexo I):
+\begin{displaymath}
+0.02 * j_m + 0.05 * p
+\end{displaymath}
+
+, donde:
+\begin{itemize}
+    \item $j_m = \text{jubilación mínima}$
+    \item $p = \text{pensión}$
+\end{itemize}
+
+\subsubsection{Ascendiente en primer grado}
+Para un afiliado de esta categoría con más de diez (10) años de antigüedad en DOSPU, se utiliza como valor de referencia \acrshort{cmmu}20, equivalente a 6\% de un Profesor Universitario Titular Exclusivo con una Antigüedad correspondiente veinte años, en lugar de la \acrshort{cmmu}\cite{dospuRes60}.
+
+Asimismo, para afiliados mayores a 66 años de edad, se toma el 150\% en lugar de 200\% del valor de referencia, siendo este último el utilizado para los ascendientes en primer grado sin la antigüedad requerida.
+
+En caso de no contar con dichos aportes, el valor de la cuota se calcula como un porcentaje sobre el valor de referencia \acrshort{cmmu} (\cite{dospuRes21} art. 3).
+
+\subsubsection{Adherentes de edad avanzada}\label{sssec:edad_avanzada}
+El monto a abonar por los afiliados pertenecientes a esta subcategoría depende de si el afiliado tiene 25 o más años de aporte de \acrfull{decom} (\cite{dospuRes7} art. 1.d.):
+\begin{itemize}
+    \item En caso de tener dicho aporte se toma un 150\% de la \acrshort{cmmu}
+    \item En caso contrario se toma un 200\% de la \acrshort{cmmu}.
+\end{itemize}
+
+\subsection{Aportes y seguros adicionales}
+Adicionalmente, dependiendo de la categoría y subcategoría del afiliado, el monto de la cuota pued incluir aportes a \acrfull{fesac} y \acrfull{sumas}, así como un seguro en caso de fallecimiento \cite{dospuRes31, dospuRes43, dospuRes71}.
+
+\subsection{Modificadores de afiliación}
+Para afiliados voluntarios adherente que ingresen con enfermedades preexistentes o que excedan la edad de 65 años se aplica un modificador al monto de la cuota cálculada, el cual depende del carácter de la enferdad del afiliado (ver \cref{tbl:modificadores}).
+
+\begin{table}
+\begin{tabular}{|c|c|}
+    \hline
+    Carácter de la enfermedad & Modificador \\ \hline
+    Temporario & 2 \\ \hline
+    Crónico & 3 \\ \hline
+    De mayor complejidad & 2 \\ \hline
+\end{tabular}
+\caption{Modificadores de afiliación}
+\label{tbl:modificadores}
+\end{table}

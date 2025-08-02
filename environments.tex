@@ -36,9 +36,23 @@
   \captionsetup{ font=smallfloatfont }
 }{\endoldenumerate}
 
+\let\olditemize\itemize
+\let\endolditemize\enditemize
+\renewenvironment{itemize}{
+  \olditemize[noitemsep, nolistsep]
+  \captionsetup{ font=smallfloatfont }
+}{\endolditemize}
+
 \makeatletter
 \AtBeginEnvironment{table*}{%
   \centering
   \captionsetup{ font=bigfloatfont }
+}
+\makeatother
+
+\makeatletter
+\AtBeginEnvironment{table}{%
+  \centering
+  \captionsetup{ font=smallfloatfont }
 }
 \makeatother

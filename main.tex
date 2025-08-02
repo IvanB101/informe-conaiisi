@@ -10,8 +10,8 @@
 
 \usepackage{titlesec}
 \titlespacing*{\section} {0pt}{1em}{0ex}
-\titlespacing*{\subsection} {0pt}{0ex}{0ex}
-\titlespacing*{\subsubsection} {0pt}{0ex}{0ex}
+\titlespacing*{\subsection} {0pt}{1em}{0ex}
+\titlespacing*{\subsubsection} {0pt}{1em}{0ex}
 
 \pagestyle{empty}
 
@@ -34,7 +34,7 @@
 
 \usepackage[inline]{enumitem}
 
-\usepackage{cleveref}
+\usepackage[sort&compress]{cleveref}
 \crefname{listing}{listado}{listados}
 \Crefname{listing}{Listado}{Listados}
 
@@ -94,36 +94,34 @@
 \author{Iván Brocas}
 
 \begin{document}
+    \thistitle
 
-\thistitle
+    \justifying
+    \input{abstract}
 
-\justifying
-\input{abstract}
+    \begin{keywords}
+    Obra social universitaria, motor de reglas, sistema informático, OpenL Tablets, cálculo de cuotas
+    \end{keywords}
 
-\begin{keywords}
-Obra social universitaria, motor de reglas, sistema informático, OpenL Tablets, cálculo de cuotas
-\end{keywords}
+    \input{introduccion}
 
-\input{introduccion}
+    \input{enfoque}
 
-\input{enfoque}
+    \input{reglas}
 
-\input{reglas}
+    \input{seleccion}
 
-\input{seleccion}
+    \input{integracion}
 
-\input{integracion}
+    \input{implementacion}
 
-\input{implementacion}
+    \input{trabajos_relacionados}
 
-\input{trabajos_relacionados}
+    \input{conclusiones}
 
-\input{conclusiones}
+    \input{agradecimientos}
 
-\input{agradecimientos}
+    \printbibliography
 
-\printbibliography
-
-\input{contacto}
-
+    \input{contacto}
 \end{document}
