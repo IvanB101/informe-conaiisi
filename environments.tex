@@ -26,21 +26,19 @@
 
 }{\par}
 
+\DeclareCaptionFont{smallfloatfont}{\fontsize{10}{12}\selectfont\itshape}
+\DeclareCaptionFont{bigfloatfont}{\fontsize{10}{12}\selectfont\bfseries}
+
 \let\oldenumerate\enumerate
+\let\endoldenumerate\endenumerate
 \renewenvironment{enumerate}{
-    \begin{oldenumerate}[noitemsep, nolistsep]
-        
-}{
+  \oldenumerate[noitemsep, nolistsep]
+  \captionsetup{ font=smallfloatfont }
+}{\endoldenumerate}
 
-    \end{oldenumerate}
+\makeatletter
+\AtBeginEnvironment{table*}{%
+  \centering
+  \captionsetup{ font=bigfloatfont }
 }
-
-\let\oldtable\table
-\renewenvironment{table}{
-    \begin{oldtable}
-    \centering
-        
-}{
-
-    \end{oldtable}
-}
+\makeatother

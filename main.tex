@@ -1,25 +1,28 @@
-\documentclass[12pt,a4paper,spanish]{article} 
+\documentclass[12pt,a4paper,spanish,twocolumn]{article} 
 \usepackage[spanish]{babel}
 
 \setlength{\parindent}{0pt}
 
 \usepackage{sectsty}
 \sectionfont{\rmfamily\fontsize{12pt}{14.4pt}\selectfont}
+\subsectionfont{\rmfamily\fontsize{12pt}{14.4pt}\selectfont}
+\subsubsectionfont{\rmfamily\fontsize{12pt}{14.4pt}\selectfont}
 
 \usepackage{titlesec}
 \titlespacing*{\section} {0pt}{1em}{0ex}
+\titlespacing*{\subsection} {0pt}{0ex}{0ex}
+\titlespacing*{\subsubsection} {0pt}{0ex}{0ex}
 
 \pagestyle{empty}
 
+\usepackage{etoolbox}
 \usepackage{caption}
 
-\DeclareCaptionFont{customfont}{\fontsize{10}{12}\selectfont\bfseries}
-\captionsetup{ font=customfont }
-
 \usepackage[bookmarks=true]{hyperref}
+\usepackage{csquotes}
 
 \usepackage{ragged2e}
-\usepackage[none]{hyphenat}
+% \usepackage[none]{hyphenat}
 
 % Agrega toc al toc
 \usepackage{tocbibind}
@@ -35,8 +38,6 @@
 \crefname{listing}{listado}{listados}
 \Crefname{listing}{Listado}{Listados}
 
-\usepackage{multicol}
-
 \usepackage{fontspec}
 \setmonofont{MesloLGS NF}
 \setmainfont{Times New Roman}
@@ -45,6 +46,8 @@
 % \usetikzlibrary{arrows.meta, positioning}
 
 \usepackage[margin=2.5cm]{geometry}
+
+\setlength{\columnsep}{1cm}
 
 % \usepackage{minted}
 % \setminted[]{
@@ -94,36 +97,33 @@
 
 \thistitle
 
-\setlength\columnsep{1cm}
-\begin{multicols}{2}
-    \justifying
-    \input{abstract}
+\justifying
+\input{abstract}
 
-    \begin{keywords}
-    Obra social universitaria, motor de reglas, sistema informático, OpenL Tablets, cálculo de cuotas
-    \end{keywords}
+\begin{keywords}
+Obra social universitaria, motor de reglas, sistema informático, OpenL Tablets, cálculo de cuotas
+\end{keywords}
 
-    \input{introduccion}
+\input{introduccion}
 
-    \input{enfoque}
+\input{enfoque}
 
-    \input{reglas}
+\input{reglas}
 
-    \input{seleccion}
+\input{seleccion}
 
-    \input{integracion}
+\input{integracion}
 
-    \input{implementacion}
+\input{implementacion}
 
-    \input{trabajos_relacionados}
+\input{trabajos_relacionados}
 
-    \input{conclusiones}
+\input{conclusiones}
 
-    \input{agradecimientos}
+\input{agradecimientos}
 
-    \printbibliography
+\printbibliography
 
-    \input{contacto}
-\end{multicols}
+\input{contacto}
 
 \end{document}
