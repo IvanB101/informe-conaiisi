@@ -1,0 +1,46 @@
+\renewenvironment{abstract}{
+  \fontsize{10pt}{12pt}\selectfont
+  {\bfseries Abstract}
+
+  \itshape
+}{\par}
+
+\newenvironment{contact}{
+  \par\fontsize{10pt}{12pt}\selectfont
+  {\bfseries Datos de Contacto}
+
+  \itshape
+}{\par}
+
+\newenvironment{keywords}{
+  \par\vspace{1em}
+  \fontsize{10pt}{12pt}\selectfont
+  {\bfseries Palabras Clave}
+
+}{\par}
+
+\renewenvironment{thanks}{
+  \par\vspace{1em}
+  \fontsize{10pt}{12pt}\selectfont
+  {\bfseries Agradecimientos}
+
+}{\par}
+
+\let\oldenumerate\enumerate
+\renewenvironment{enumerate}{
+    \begin{oldenumerate}[noitemsep, nolistsep]
+        
+}{
+
+    \end{oldenumerate}
+}
+
+\let\oldtable\table
+\renewenvironment{table}{
+    \begin{oldtable}
+    \centering
+        
+}{
+
+    \end{oldtable}
+}

@@ -2,11 +2,19 @@
 \usepackage[spanish]{babel}
 
 \setlength{\parindent}{0pt}
+
 \usepackage{sectsty}
 \sectionfont{\rmfamily\fontsize{12pt}{14.4pt}\selectfont}
+
 \usepackage{titlesec}
-\titlespacing*{\section} {0pt}{0ex}{0ex}
+\titlespacing*{\section} {0pt}{1em}{0ex}
+
 \pagestyle{empty}
+
+\usepackage{caption}
+
+\DeclareCaptionFont{customfont}{\fontsize{10}{12}\selectfont\bfseries}
+\captionsetup{ font=customfont }
 
 \usepackage[bookmarks=true]{hyperref}
 
@@ -56,7 +64,7 @@
 % \graphicspath{ {./images/} }
 
 % \usepackage{csquotes}
-\usepackage[backend=biber, style=alphabetic, sorting=none, bibstyle=alphabetic, maxnames=10, minnames=6,backref=true, autocite=inline, labelalpha=true, doi=false, url=false]{biblatex}
+\usepackage[backend=biber, style=numeric, sorting=none, bibstyle=numeric ,backref=true, autocite=inline, labelalpha=true, doi=false, url=false]{biblatex}
 \addbibresource{the.bib}
 
 % Use more than one optional parameter in a new commands
@@ -66,7 +74,7 @@
 % \newcommandx{\desarrollar}[2][1=]{\todo[inline,linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 % \newcommandx{\modificar}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 % \newcommandx{\cambiarpor}[2][1=]{\todo[inline,linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{Cambiar $\uparrow$ por:\\#2}}
-% \newcommandx{\revisar}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red, inline,#1]{#2}}
+\newcommandx{\revisar}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red, inline,#1]{#2}}
 % \newcommandx{\agregaren}[2][1=]{\todo[inline,linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{Agregar punto seguido $\uparrow$:\\#2}}
 % \newcommandx{\agregar}[2][1=]{\todo[inline,linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{Agregar:\\#2}}
 % \newcommandx{\info}[2][1=]{\todo[inline,linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
@@ -77,7 +85,7 @@
 
 \input{commands}
 
-\input{format}
+\input{environments}
 
 \title{Parametrizando un Sistema Informático para Obra Social Universitaria con un Motor de Reglas}
 \author{Iván Brocas}
@@ -97,11 +105,11 @@
 
     \input{introduccion}
 
-    \input{metodologia}
+    \input{enfoque}
 
     \input{reglas}
 
-    \input{selccion}
+    \input{seleccion}
 
     \input{integracion}
 
@@ -113,7 +121,7 @@
 
     \input{agradecimientos}
 
-    % TODO: referencias
+    \printbibliography
 
     \input{contacto}
 \end{multicols}

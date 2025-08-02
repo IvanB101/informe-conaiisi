@@ -27,3 +27,9 @@
 \newcommand{\CenteredGraphic}[2]{%
 	{\centering \resizebox{#2\textwidth}{!}{\includegraphics{#1}} \\}
 }
+
+\defbibheading{bibliography}[\refname]{%
+  \section*{\fontsize{10pt}{12pt}\selectfont #1}%
+}
+\renewcommand*{\bibfont}{\fontsize{10pt}{12pt}\selectfont}
+
