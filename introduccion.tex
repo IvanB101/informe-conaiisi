@@ -2,6 +2,8 @@
 
 Este proyecto integrador final se encuentra enmarcado en el contexto del desarrollo de un \acrfull{si} para \acrfullpl{osu} caracterizado por la centricidad en el afiliado y la agilidad. Este trabajo se centra en la segunda, procurando facilitar la adaptación del sistema en respuesta a cambios a un costo accesible y en tiempos mínimos a partir de la introducción de un motor de reglas que permita separar el código fuente de reglas del negocio tendientes a cambiar.
 
+\subsection{Motivación}\label{ssec:motivacion}
+
 El \acrshort{si} de una \acrshort{osu} debe mantenerse ``vivo''. 
 Su utilidad, el valor que provee su funcionamiento, disminuye conforme pierde sintonía con los cambios que tanto la organización (por ejemplo, cambios en políticas y reglamentos locales) como su contexto sufren (como ser, cambios en leyes nacionales y provinciales, situaciones sociales o económicas a las que se debe atender, o eventos como Covid-19).
 Dado que el cambio es la norma, no la excepción, la falta sistemática de evolución de un {\SIOSU} representa su agonía y eventual muerte, la cual es generalmente acompañada de numerosos perjuicios para la \acrshort{osu} y sus afiliados.
@@ -31,6 +33,8 @@ La agilidad para responder a cambios en el contexto aún no se abordó hasta est
 
 Este proyecto integrador constituye un paso hacia un {\SIOSU} ágil, fácil de adaptar a cambios en el contexto socio-económico y en las reglamentaciones que regulan su funcionamiento.
 
+\subsection{Objetivo general}
+
 El objetivo es parametrizar el {\SIOSU} de \acrshort{dospu}, introduciendo un mecanismo que permita separar de las reglas de negocio de la organización de su \acrshort{si}. 
 A partir de la experiencia obtenida en el desarrollo de {\SIDOSPU}, se detectó que la reglamentación para el cálculo de la cuota de afiliados es compleja y muy susceptible a cambios en la realidad socio-económica del país. 
 Estas características convierten a dicha funcionalidad en candidata ideal para enfocar el esfuerzo y, por lo tanto, la misma se adopta como alcance para el presente trabajo.
@@ -38,21 +42,21 @@ Estas características convierten a dicha funcionalidad en candidata ideal para 
 El mecanismo típico para lograr esta separación es un motor de reglas. Este permite la ejecución de reglas de negocio, las cuales son especificadas fuera del código del sistema, utilizando un lenguaje o formato específico del motor que se utilice.
 Asimismo, se suele hacer uso de un \acrfull{brms}, que consiste en un motor de reglas junto con herramientas para la gestión de las reglas de negocio.
 
-Del objetivo general se desprenden los siguientes objetivos específicos:
-%
-\begin{enumerate}
+\subsection{Objetivos específicos}
 
+Del objetivo general se desprenden los siguientes objetivos específicos:
+\begin{enumerate}
     \item 
     Extraer las reglas del negocio correspondientes al cálculo de la cuota de afiliación a partir de las reglamentaciones pertinentes y su materialización en el código fuente del {\SIDOSPU}.
-    \item 
-    \label{obj:esp:intelegible}
+    \item \label{obj:esp:intelegible}
     Expresar dichas reglas en un lenguaje que resulte entendible para el personal de la \acrlong{osu}
-    \item
-    \label{obj:esp:independiente}
+    \item \label{obj:esp:independiente}
     Permitir la gestión de las especificaciones obtenidas de forma independiente al \acrshort{si}.
     \item Reducir el esfuerzo requerido para materializar cambios en las reglas del negocio. Este esfuerzo no debe requerir modificar el código fuente del sistema, ni realizar el despliegue de una nueva versión.
 \end{enumerate}
 
 El logro de estos objetivos permitirá que cambios en las reglas de negocio puedan materializarse a través de la edición de especificaciones externas,  permitiendo la reducción en la incidencia a o posiblemente una solución a los problemas mencionados anteriormente.
 
-% TODO: organizacion
+\subsection{Organización}
+El resto de este trabajo se encuentra dividido en:
+% TODO: 

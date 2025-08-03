@@ -1,0 +1,38 @@
+\section{Motores de reglas}
+
+La idea subyacente de los motores de reglas es la externalización de la lógica de negocios. Este puede ser visto como un intérprete sofisticado de sentencias \scode{if-then} (si-entonces). Estas sentencias, llamadas reglas están compuestas por: una condición, que evalúa a verdadero o falso, y una acción, que es ejecutada en el caso de que la condición evalúe a verdadero \cite{qusay2005jsr94}.
+
+Dentro de los existentes, se realizó un relevamiento de algunos de los motores de reglas más utilizados en el entorno de desarrollo de Java, haciendo énfasis en los siguientes aspectos:
+\begin{description}
+    \item[Gestión de las reglas:] 
+    ¿Que herramientas o mecanismos brinda para tareas de la gestión de las reglas, como la creación, modificación, eliminación, evaluación y versionado?
+    \item[Integración:]
+    ¿Cómo puede ser el motor integrado con el sistema actual? ¿Cómo se realiza el intercambio de información entre el motor de reglas y el sistema? ¿Cuenta el motor con documentación relevante y actualizada?
+    \item[Mantenimiento:]
+    ¿Cuenta el proyecto con mantenedores activos? ¿Existen bugs o incompatibilidades que puedan afectar a este trabajo?
+    \item[Expresividad]
+    ¿Con qué lenguaje o lenguajes permite el motor la expresión de las reglas?
+\end{description}
+
+Los motores considerados fueron Rulebook \cite{rulebook}, Easy Rules \cite{easy-rules}, JESS \cite{jess}, Drools \cite{drools} y OpenL Tablets \cite{openl-reference}. Para facilitar la comparación de las distintas opciones se implementó la lógica de un cálculo utilizando cada una, los ejeplos pueden encontrarse en un respositorio en Github \cite{ejemplos}.
+
+Teniendo en cuenta el objetivo \ref{obj:esp:independiente}, se descarta Rulebook como opción viable, dado que las reglas deben estar dentro del código Java.
+
+Aplicando la línea de razonamiento utilizada en el \cref{ssec:motivacion} para los sistemas ``enlatados'', se valoran las opciones restantes sobre JESS, dado que, a diferencia de las demás opciones, no es de código abierto.
+
+Por otra parte, Easy Rules permite la separación entre las reglas y el código. Sin embargo, en el ejemplo realizado, las reglas resultaban en incluso más líneas de código que la implementación original, por lo que también se considera inviable.
+
+Esto deja a Drools y OpenL Tablets como opciones de interés para este trabajo, con lo cual ahora se presenta una comparación más detallada entre ambos:
+
+\begin{description}
+    \item[Expresividad:] La expresividad que ambos proveen para las reglas resulta comparable. Dicho esto, las tablas de Excel probablemente resulten más familiares para la mayoría de personas que los diagramas con \acrfull{dmn} utilizados por drools.
+    \item[Gestión de reglas:] Tanto Drools como OpenL tablets cuentan con capacidades para creación, edición y eliminación de reglas, brindadas por DMN editor y OpenL Studio, respectivamente. La principal diferencia es que OpenL Studio también incluye herramientas para el versionado de las reglas.
+    \item[Integración:] En este campo los motores son similares. Una diferencia es que OpenL Tablets permite llamadas arbitrarias a métodos de objetos Java, mientras que Drools no.
+    \item[Mantenimiento:] Ambos proyectos son actualemente (hasta la última fecha de edición de esta sección, 19/07/2025) activamente mantenidos.
+    % TODO: mencionar problemas drools
+\end{description}
+
+Además de los puntos en esta comparación, la principal diferencia entre ambas opciones fue que al trabajar con Drools se encontraron algunos problemas a la hora de gestionar las reglas. Teniendo en cuenta el objetivo \ref{obj:esp:intelegible}, se utilizaron los diagramas \acrshort{dmn} con expression escritas en \acrfull{feel}, los problemas fueron con los editores de reglas para este formato.
+Utilizando Ubuntu 22.04.5 LTS, tanto en la extensión como la librería web de DMN Editor, se encontraron problemas para la importación de clases Java, modelos en otros archivos y declaraciones de tipos en expresiones. Estas funcionalidades funcionaban de forma errónea o no funcionaban en la PC utiliza para el desarrollo.
+
+A raíz de esta comparación, se considera que OpenL Tablets es la opción más apropiada para este trabajo.

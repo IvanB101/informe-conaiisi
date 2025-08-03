@@ -14,8 +14,8 @@
 ]
 }
 
-\newcommand{\code}[1]{{\mintinline{java}{#1}}}
-\newcommand{\scode}[1]{{\small\code{#1}}}
+\newcommand{\code}[1]{{\texttt{#1}}}
+\newcommand{\scode}[1]{{\scriptsize\code{#1}}}
 
 \let\originalacrfull\acrfull
 \RenewDocumentCommand{\acrfull}{m}{%
@@ -34,4 +34,8 @@
   \section*{\fontsize{10pt}{12pt}\selectfont #1}%
 }
 \renewcommand*{\bibfont}{\fontsize{10pt}{12pt}\selectfont}
+\urlstyle{rm} 
+\DeclareFieldFormat{title}{\textnormal{#1}}
+\DeclareFieldFormat{journaltitle}{\textnormal{#1}}
+\DeclareFieldFormat{booktitle}{\textnormal{#1}}
 

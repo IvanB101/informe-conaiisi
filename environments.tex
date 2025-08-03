@@ -43,6 +43,13 @@
   \captionsetup{ font=smallfloatfont }
 }{\endolditemize}
 
+\let\olddescription\description
+\let\endolddescription\enddescription
+\renewenvironment{description}{
+  \olddescription[noitemsep, nolistsep]
+  \captionsetup{ font=smallfloatfont }
+}{\endolddescription}
+
 \makeatletter
 \AtBeginEnvironment{table*}{%
   \centering
