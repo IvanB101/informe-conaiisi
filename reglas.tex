@@ -10,7 +10,7 @@ Dentro de la categoría titular se distingue entre obligatorio activo y voluntar
 \subsubsection{Obligatorio activo} 
 Actualmente, este descuento no es cálculado por el \acrshort{si}, con lo cual está fuera del alcance de este trabajo.
 
-\subsubsection{Voluntario jubilado}
+\subsubsection{Voluntario jubilado} \label{sssec:jubilado}
 Monto de la cuota (\cite{dospuRes21} art. 2 y Anexo I): 
 \begin{displaymath}
 0.02 * j_m + 0.05 * j_h
@@ -23,6 +23,10 @@ Monto de la cuota (\cite{dospuRes21} art. 2 y Anexo I):
 \end{itemize}
 
 En caso de que dos voluntarios jubilados se tengan vínculo de cónyuge o conviviente, se aplica un descuento del 30\% a la cuota del afiliado (cálculada con la fórmula expuesta para esta subcategoría) con menor haber percibido, quedando como 70\% del monto calculado.
+
+Adicionalmente, el valor de esta cuota no puede ser inferior a un valor de referencia (\scode{cuotaMinimaJubilado}).
+
+Por último, en caso de no tener un haber percibido cargado en el sistema, se utiliza otro valor de referencia (\scode{cuotaMaximaJubilado}) como el monto de la misma.
 
 \subsection{Familiar} \label{sec:familiar}
 Los familiares de obligatorios activos son no aportantes.

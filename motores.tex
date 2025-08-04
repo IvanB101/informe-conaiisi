@@ -1,4 +1,4 @@
-\section{Motores de reglas}
+\section{Motores de reglas}\label{sec:motores}
 
 La idea subyacente de los motores de reglas es la externalización de la lógica de negocios. Este puede ser visto como un intérprete sofisticado de sentencias \scode{if-then} (si-entonces). Estas sentencias, llamadas reglas están compuestas por: una condición, que evalúa a verdadero o falso, y una acción, que es ejecutada en el caso de que la condición evalúe a verdadero \cite{qusay2005jsr94}.
 
@@ -27,7 +27,7 @@ Esto deja a Drools y OpenL Tablets como opciones de interés para este trabajo, 
 \begin{description}
     \item[Expresividad:] La expresividad que ambos proveen para las reglas resulta comparable. Dicho esto, las tablas de Excel probablemente resulten más familiares para la mayoría de personas que los diagramas con \acrfull{dmn} utilizados por drools.
     \item[Gestión de reglas:] Tanto Drools como OpenL tablets cuentan con capacidades para creación, edición y eliminación de reglas, brindadas por DMN editor y OpenL Studio, respectivamente. La principal diferencia es que OpenL Studio también incluye herramientas para el versionado de las reglas.
-    \item[Integración:] En este campo los motores son similares. Una diferencia es que OpenL Tablets permite llamadas arbitrarias a métodos de objetos Java, mientras que Drools no.
+    \item[Integración:] En este campo ambas opciones son comparables, permitiendo hacer uso directo de objetos Java dentro de las reglas.
     \item[Mantenimiento:] Ambos proyectos son actualemente (hasta la última fecha de edición de esta sección, 19/07/2025) activamente mantenidos.
     % TODO: mencionar problemas drools
 \end{description}

@@ -50,16 +50,18 @@
   \captionsetup{ font=smallfloatfont }
 }{\endolddescription}
 
-\makeatletter
-\AtBeginEnvironment{table*}{%
-  \centering
-  \captionsetup{ font=bigfloatfont }
-}
-\makeatother
-
-\makeatletter
-\AtBeginEnvironment{table}{%
-  \centering
+\AtBeginEnvironment{table}{
   \captionsetup{ font=smallfloatfont }
 }
-\makeatother
+
+\AtBeginEnvironment{table*}{
+  \captionsetup{ font=bigfloatfont }
+}
+
+\AtBeginEnvironment{figure}{
+  \captionsetup{ font=smallfloatfont }
+}
+
+\AtBeginEnvironment{figure*}{
+  \captionsetup{ font=bigfloatfont }
+}
