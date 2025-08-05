@@ -1,3 +1,23 @@
-\section{Conclusión y Trabajos Futuros}
+\section{Conclusión y Trabajos Futuros}\label{sec:conclusiones}
 
-Esta sección debe explicitar las limitaciones del trabajo presentado y establecer una discusión sobre los resultados o conclusiones presentadas. Se debe realizar un análisis de los aportes del trabajo frente a otros anteriores si los hubiera. Además, se deben establecer cuestiones abiertas y probables líneas adicionales en el marco de los resultados obtenidos. Los trabajos futuros se deben relacionar con la superación de las limitaciones del trabajo presentado. Muchas veces es, junto con el título, la parte más leída y por lo tanto debe ser de fácil comprensión. (Times New Roman, 12).
+Revisando los objetivos plantedos en el \cref{ssec:intro:especificos}: en el \cref{sec:afiliaciones} se puede ver las reglas extraídas de la documentación mencionada en el \cref{sec:metodologia} (objetivo \ref{obj:esp:extraer}).
+
+Adicionalmente, como se puede ver en el \cref{sec:resultados}, la introducción del motor de reglas permitió una reducción considerable en la cantidad de líneas necesarias para implementar el cálculo de las cuotas de afiliaciones. De esta reducción se infiere una mejora en la legibilidad (objetivo \ref{obj:esp:intelegible}).
+
+Por otra parte, en el \cref{sec:integracion} se mencionó que estas reglas son almacenadas en documentos Excel, lo cual las separa de la base de código del sistema (objetivo \ref{obj:esp:independiente}), pudiendo gestionar estos documentos por separado. Asimismo, las clases wrapper utilizadas para acceder a las reglas pueden ser cambiadas en tiempo de ejecución, permitiendo realizar cambios sin la necesidad de volver a compilar o desplegar el sistema (objetivo \ref{obj:esp:esfuerzo}).
+
+\subsection{Limitaciones}
+Actualmente, las reglas deben ser modificadas mediante la edición de los documentos Excel que las contienen. Las herramientas para documentos con este formator carecen de herramientas para la validación y versionado de las reglas, ya que el formato que utizan no es nativo de Excel.
+
+A su vez, queda pendiente una medición del impacto real en la reducción del esfuerzo necesario para la compresión de las reglas por el personal de la \acrshort{osu}.
+
+\subsection{Trabajos Futuros}
+
+\subsubsection{Continuar con la parámetrización del SI}
+La continuación más natural para este trabajo es la parametrización de otras reglas de la \acrshort{osu}, utilizando las tecnologías descritas anteriormente, como por ejemplo el cálculo de las coberturas de las prácticas.
+
+\subsubsection{Mejora en la gestión de reglas}
+Para facilitar la gestión de reglas por parte del personal de \acrshort{dospu}, se podría hacer uso de OpenL Studio, configurandolo para que funcione en conjunto con el \acrshort{si} actual. OpenL Studio brinda un editor para las reglas, permitiendo la validación de las mismas en el editor, así como herramientas para el control de versiones y la restricción del acceso, permitiendo solo a personal con las credenciales adecuadas para que realice cambios.
+
+\subsubsection{Estudio de la inteligibilidad}
+Se podría realizar una estimación del esfuerzo necesario para la compresión de las reglas con el nuevo formato o una medición del tiempo necesario para que un miembro del personal de la \acrshort{osu} pueda realizar un cambio en las reglas de forma correcta, por ejemplo.

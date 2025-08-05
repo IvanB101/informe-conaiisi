@@ -1,15 +1,10 @@
-\section{Integración con el SIDOSPU}
+\section{Integración con el SIDOSPU}\label{sec:integracion}
 
 Para la integración de OpenL Tablets con el {\SIDOSPU} existen dos alternativas.
 
-La primera consiste en exponer las reglas por medio de un servicio web utilizando OpenL Rule Services. Las principales ventajas que permite esto son:
-\begin{itemize}
-    \item Facilita la integración con distintas aplicaciones, sobre distintas plataformas.
-    \item Posibilita utilizar varias fuentes de datos.
-    \item Permite exponer varios proyectos y/o módulos mediante un único servicio web.
-\end{itemize}
+La primera consiste en exponer las reglas por medio de un servicio web utilizando OpenL Rule Services. Esto nos permite integrar con distintas aplicaciones, sobre distintas plataformas, utilizar varias fuentes de datos y exponer varios proyectos y/o módulos mediante un único servicio web.
 
-La segunda consiste en incluir OpenL Tablets como dependencia en el sistema, utilizando sus clases para la generación de clases wrapper. Estas últimas se generan en tiempo de ejecución a partir del contenido de las tablas en documentos Excel, exponiendo las reglas como métodos.
+La segunda consiste en incluir OpenL Tablets como dependencia en el sistema, utilizando sus clases para la generación de clases wrapper. Estas últimas se generan en tiempo de ejecución a partir del contenido de las tablas en documentos Excel, exponiendo las reglas definados en los mismos como métodos.
 La principal ventaja de esta opción es que resulta en un menor costo de comunicación, dado que se realiza por medio de llamadas a métodos entre clases Java.
 
 Considerando que las reglas serán utilizadas únicamente por el {\SIOSU}, y estarán agrupadas en un único proyecto, lo que implide sacar partido de los beneficios mencionados, se decidió utilizar la segunda opción. 
@@ -75,7 +70,7 @@ En el \cref{tbl:calculo:jubilado} se pueden ver las tablas correspondientes al c
     \label{tbl:calculo:jubilado}
 \end{table*}
 
-\subsection{Realizando un cambio}
+\subsection{Realizando un cambio}\label{ssec:integracion:cambio}
 Para ilustrar las ventajas de estos cambios en el \SIDOSPU a la hora de realizar cambios en las reglas, consideremos la aplicación del siguiente cambio en el valor de las cuotas:
 
 \emph{
@@ -84,7 +79,7 @@ Para el cálculo de la cuota de un afiliado con categoría voluntario adherente 
 
 Sin el uso del motor de reglas, este cambio implica el cambio/adición de una 32 líneas de código. Seguidamente, se debe volver a compilar y desplegar el sistema hacer estos cambios efectivos.
 
-Por otra parte, haciendo uso del OpenL Tablets, con la integración descrite, se requiere realizar los cambios entre los cuadros \ref{tbl:cambio:original} y \ref{tbl:cambio:cambiado}.El cambio es detectado en tiempo de ejecución y se generan las nuevas clases wrapper, sin necesidad de volver a compilar o desplegar el sistema.
+Por otra parte, haciendo uso del OpenL Tablets, con la integración descrite, se requiere realizar los cambios entre los cuadros \ref{tbl:cambio:original} y \ref{tbl:cambio:cambiado}. El cambio es detectado en tiempo de ejecución y se generan las nuevas clases wrapper, sin necesidad de volver a compilar o desplegar el sistema.
 
 \begin{table*}
     \centering

@@ -1,3 +1,24 @@
-\section{Resultados}
+\section{Resultados}\label{sec:resultados}
 
-% TODO: comparacion entre las distintas versiones
+Para la comparación de las distintas versiones del cálculo de las cuotas se utilizó la métrica cuantitativa (ver \cref{sec:metodologia}). Para reducir el sesgo de los formateadores utilizados, se midieron las líneas de código utilizando dos formateadores distintos:
+\begin{itemize}
+    \item \href{https://github.com/google/google-java-format}{google-java-format}: un formateador que sigue la \href{https://google.github.io/styleguide/javaguide.html}{Guía de estilo de Java de Google}.
+    \item Formateador de JDT LS, que es la implementación de \acrshort{lsp} de Java utilizada por la IDE de Eclipse.
+\end{itemize}
+En el \cref{tbl:results} se pueden ver las líneas de código de la versión original y posterior a la refactorización, donde se puede ver que más allá del formateador utilizado, la segunda posee un menor número de líneas. Las líneas contadas corresponden a la totalidad de las líneas responsables del cálculo de las cuotas.
+
+\begin{table*}
+\centering
+\begin{tabular}{|c|c|c|}
+    \hline
+    & google-java-format & formateador JDT LS \\ \hline
+    Versión original & 573 & 556 \\ \hline
+    Versión funcional & 512 & 444 \\ \hline
+\end{tabular}
+\caption{Líneas de código antes y después del refactorizado}
+\label{tbl:results}
+\end{table*}
+
+Por otra parte, utilizando el motor de reglas se utilizan 143 filas en todas las tablas utilizadas para los cálculos. Esto es considerablemente menos que la mejor medición de líneas de código: 444.
+
+De igual forma, los cambios realizados en las tablas pueden hacerse efectivos recompilando las clases wrapper, lo cual se hace en tiempo de ejecución. Consecuentemente no es necesario volver a compilar ni desplegar el sistema.
