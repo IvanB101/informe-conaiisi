@@ -1,71 +1,83 @@
 \section{Introducción}\label{sec:intro}
 
-Este proyecto integrador final se encuentra enmarcado en el contexto del desarrollo de un \acrfull{si} para \acrfullpl{osu} caracterizado por la centricidad en el afiliado y la agilidad. Este trabajo se centra en la segunda, procurando facilitar la adaptación del sistema en respuesta a cambios a un costo accesible y en tiempos mínimos a partir de la introducción de un motor de reglas que permita separar el código fuente de reglas del negocio tendientes a cambiar.
+Este proyecto integrador final se encuentra enmarcado en el contexto del desarrollo de un \acrfull{si} para \acrfullpl{osu} caracterizado por la centricidad en el afiliado y la agilidad. 
+Este trabajo se centra en la segunda, procurando reducir costos y tiempos de adaptación del sistema a cambios a partir de la introducción de un motor de reglas que permita separar del código fuente las reglas del negocio tendientes a cambiar.
 
-\subsection{Motivación}\label{ssec:motivacion}
+% \subsection{Motivación}\label{ssec:motivacion}
 
 El \acrshort{si} de una \acrshort{osu} debe mantenerse ``vivo''. 
-Su utilidad, el valor que provee su funcionamiento, disminuye conforme pierde sintonía con los cambios que tanto la organización (por ejemplo, cambios en políticas y reglamentos locales) como su contexto sufren (como pueden ser, cambios en leyes nacionales y provinciales, situaciones sociales o económicas a las que se debe atender, o eventos como Covid-19).
-Dado que el cambio es la norma, no la excepción, la falta sistemática de evolución de un {\SIOSU} representa su agonía y eventual muerte, la cual es generalmente acompañada de numerosos perjuicios para la \acrshort{osu} y sus afiliados.
+El valor que provee su funcionamiento disminuye conforme pierde sintonía con los cambios que tanto la organización 
+% (por ejemplo, cambios en políticas y reglamentos locales) 
+como su contexto sufren. 
+% (como pueden ser, cambios en leyes nacionales y provinciales, situaciones sociales o económicas a las que se debe atender, o eventos como Covid-19)
+Dado que el cambio es la norma, no la excepción, la falta sistemática de evolución de un {\SIOSU} representa su agonía y eventual muerte, la cual es generalmente acompañada de numerosos perjuicios para la \acrshort{osu}.
 
-Al encontrarse con un sistema desactualizado, los funcionarios inicialmente suelen responder a las nuevas necesidades por medio de trabajo manual. Conforme la brecha entre las reglas de negocio, dictadas por las reglamentaciones, y la implementación de las mismas en el \acrshort{si} crece, también lo hace la porción manual del trabajo. Esto resulta en más trabajo para el personal y trámites más lentos, lo que causa mayor descontento de los afiliados. De la misma forma, el decremento en la porción del trabajo realizada por el sistema se traduce en menos información para el respaldo de decisiones.
+Los funcionarios, al encontrarse con un \acrshort{si} desactualizado, suelen responder por medio de trabajo manual. Conforme la brecha entre las reglas de negocio, dictadas por las reglamentaciones, y la implementación de las mismas en el \acrshort{si} crece, también lo hace la porción manual del trabajo. Esto resulta en más trabajo para el personal y trámites más lentos, lo que causa mayor descontento de los afiliados. De la misma forma, el decremento en la porción del trabajo realizada por el sistema se traduce en menos información para el respaldo de decisiones.
 
-Las opciones que tienen las \acrshort{osu} para sacar a sus \acrshortpl{si} del camino de la obsolescencia pueden, en general, clasificarse en:
+% Las opciones que tienen las \acrshort{osu} para sacar a sus \acrshortpl{si} del camino de la obsolescencia pueden, en general, clasificarse en:
+% \begin{enumerate}
+%     \item [(a)] incorporar/escalar su propia área de informática de manera que esté a la altura del desarrollo y mantenimiento de software necesarios;
+%     \item [(b)] contratar a una empresa para que esté a cargo de este desarrollo y mantenimiento; o
+%     \item [(c)] comprarle a una empresa el producto ya desarrollado y pagar por su adaptación y mantenimiento 
+% \end{enumerate} 
 
-\begin{enumerate}
-    \item [(a)] incorporar/escalar su propia área de informática de manera que esté a la altura del desarrollo y mantenimiento de software necesarios;
-    \item [(b)] contratar a una empresa para que esté a cargo de este desarrollo y mantenimiento; o
-    \item [(c)] comprarle a una empresa el producto ya desarrollado y pagar por su adaptación y mantenimiento 
-\end{enumerate} 
+% Es preciso señalar que las opciones (a) y (b) requieren que la \acrshort{osu} sea propietaria del sistema a revitalizar.
 
-Es preciso señalar que las opciones (a) y (b) requieren que la \acrshort{osu} sea propietaria del sistema a revitalizar.
-
-El reemplazo del sistema agonizante por uno propietario ``enlatado'', la opción (c), a primera vista puede parecer la opción menos onerosa y más rápida de concretar. 
-Sin embargo, un mayor poder de deción por parte de los afiliados, junto con un menor tamaño de la \acrshortpl{osu} (que suele implicar mayor complejidad en los convenios con proveedores) resultan en una mayor complejidad en comparación con su contraparte privada. En consecuencia, la opción (c) conlleva no solamente el pago de la licencia del \acrshort{si}, sino también el tiempo y coste de la adapación considerables del mismo a las reglamentaciones del \acrshort{osu}.
+% El reemplazo del sistema agonizante por uno propietario ``enlatado'', la opción (c), a primera vista puede parecer la opción menos onerosa y más rápida de concretar. 
+% Sin embargo, un mayor poder de deción por parte de los afiliados, junto con un menor tamaño de la \acrshortpl{osu} (que suele implicar mayor complejidad en los convenios con proveedores) resultan en una mayor complejidad en comparación con su contraparte privada. En consecuencia, la opción (c) conlleva no solamente el pago de la licencia del \acrshort{si}, sino también el tiempo y coste de la adapación considerables del mismo a las reglamentaciones del \acrshort{osu}.
 
 La \acrfull{dospu} de la \acrfull{unsl} no escapa a este problema. 
-La presidencia de \acrshort{dospu}, el Rectorado, la Facultad de Ciencias Físico-Matemáticas y Naturales, y su Departamento de Informática se encuentran colaborando para reemplazar su antiguo \acrshort{si} que ha fallado en evolucionar para acomodar los cambios que se han producido, y en el proceso causa perjuicios – como los antes enumerados – a la organización. 
+Su presidencia, el Rectorado, la Facultad de Ciencias Físico-Matemáticas y Naturales, y su Departamento de Informática se encuentran colaborando para reemplazar su antiguo \acrshort{si}, que ha fallado en evolucionar. 
 %
-El backend del nuevo sistema, \acrshort{si} -\acrshort{dospu}, está implementado utilizando el lenguaje de programación Java, el framework Spring y la base de datos PostgresSQL; y el frontend está implementado utilizando el framework Angular. 
+El backend del nuevo sistema, \acrshort{si}-\acrshort{dospu}, está implementado en el lenguaje de programación Java, el framework Spring y la base de datos PostgresSQL; y el frontend está implementado utilizando el framework Angular. 
 
 En un trabajo previo, documentado en \cite{Vela2024}, el foco estuvo sobre implementar el expendio de órdenes procurando la centricidad en el paciente.
-La agilidad para responder a cambios en el contexto aún no se abordó hasta este trabajo.
+%
+Este proyecto integrador aborda la agilidad requerida por {\SIOSU}, fácil de adaptar a cambios en el contexto socio-económico y en las reglamentaciones que regulan su funcionamiento.
 
-Este proyecto integrador constituye un paso hacia un {\SIOSU} ágil, fácil de adaptar a cambios en el contexto socio-económico y en las reglamentaciones que regulan su funcionamiento.
 
-\subsection{Objetivo general}
+% \subsection{Objetivo general}
 
-El objetivo es parametrizar el {\SIOSU} de \acrshort{dospu}, introduciendo un mecanismo que permita separar de las reglas de negocio de la organización de su \acrshort{si}. 
-A partir de la experiencia obtenida en el desarrollo de {\SIDOSPU}, se detectó que la reglamentación para el cálculo de la cuota de afiliados es compleja y muy susceptible a cambios en la realidad socio-económica del país. 
-Estas características convierten a dicha funcionalidad en candidata ideal para enfocar el esfuerzo y, por lo tanto, la misma se adopta como alcance para el presente trabajo.
+El objetivo es parametrizar {\SIDOSPU}, introduciendo un mecanismo que permita separar de las reglas de negocio de la organización de su \acrshort{si}. 
+Se detectó que la reglamentación para el cálculo de la cuota de afiliados es compleja y muy susceptible a cambios en la realidad socio-económica del país. 
+Estas características convierten a dicha funcionalidad en candidata ideal para enfocar el esfuerzo.
 
-El mecanismo típico para lograr esta separación es un motor de reglas. Este permite la ejecución de reglas de negocio, las cuales son especificadas fuera del código del sistema, utilizando un lenguaje o formato específico del motor que se utilice.
+El mecanismo típico para lograr esta separación es un motor de reglas. 
+Este permite la ejecución de reglas de negocio, especificadas fuera del código del sistema, utilizando un lenguaje o formato específico.
 Asimismo, se suele hacer uso de un \acrfull{brms}, que consiste en un motor de reglas junto con herramientas para la gestión de las reglas de negocio.
 
-\subsection{Objetivos específicos}\label{ssec:intro:especificos}
+% \subsection{Objetivos específicos}\label{ssec:intro:especificos}
 
-Del objetivo general se desprenden los siguientes objetivos específicos:
+Del objetivo se desprenden cuatro objetivos específicos:
 \begin{enumerate}
     \item \label{obj:esp:extraer}
-    Extraer las reglas del negocio correspondientes al cálculo de la cuota de afiliación a partir de las reglamentaciones pertinentes y su materialización en el código fuente del {\SIDOSPU}.
+    Conocer las reglas del negocio correspondientes al cálculo de la cuota de afiliación a partir de las reglamentaciones pertinentes y su materialización en el código fuente del {\SIDOSPU}.
     \item \label{obj:esp:intelegible}
     Expresar dichas reglas en un lenguaje que resulte entendible para el personal de la \acrlong{osu}
     \item \label{obj:esp:independiente}
     Permitir la gestión de las especificaciones obtenidas de forma independiente al \acrshort{si}.
     \item \label{obj:esp:esfuerzo}
-    Reducir el esfuerzo requerido para materializar cambios en las reglas del negocio. Este esfuerzo no debe requerir modificar el código fuente del sistema, ni realizar el despliegue de una nueva versión.
+    Reducir el esfuerzo requerido para materializar cambios en las reglas del negocio, sin requerir modificar el código fuente del sistema, ni realizar el despliegue de una nueva versión.
 \end{enumerate}
 
 El logro de estos objetivos permitirá que cambios en las reglas de negocio puedan materializarse a través de la edición de especificaciones externas,  permitiendo la reducción en la incidencia a o posiblemente una solución a los problemas mencionados anteriormente.
 
-\subsection{Organización}
+% \subsection{Organización}
+
 El resto de este trabajo se encuentra dividido en:
-\begin{itemize}
-    \item \Cref{sec:metodologia}: explica la metodología utilizada.
-    \item \Cref{sec:afiliaciones}: trata las distintas categorías de afiliaciones de la \acrshort{osu} y el cálculo de sus cuotas.
-    \item \Cref{sec:motores}: enumera lo motores de reglas considerados y el razonamiento detrás de la selección realizada dentro de las opciones.
-    \item \Cref{sec:integracion}: explica como se realizó la integración del motor de reglas seleccionado con el {\SIOSU}.
-    \item \Cref{sec:resultados}: expone los resultados obtenidos en el trabajo.
-    \item \Cref{sec:trabajos_relacionados}: enumera trabajos relacionados con el presente.
-    \item \Cref{sec:conclusiones}: muestra las conclusiones, limitaciones y posibles continuaciones de este trabajo.
-\end{itemize}
+% \begin{itemize}
+%     \item \Cref{sec:metodologia}: explica la metodología utilizada.
+%     \item \Cref{sec:afiliaciones}: trata las distintas categorías de afiliaciones de la \acrshort{osu} y el cálculo de sus cuotas.
+%     \item \Cref{sec:motores}: enumera lo motores de reglas considerados y el razonamiento detrás de la selección realizada dentro de las opciones.
+%     \item \Cref{sec:integracion}: explica como se realizó la integración del motor de reglas seleccionado con el {\SIOSU}.
+%     \item \Cref{sec:resultados}: expone los resultados obtenidos en el trabajo.
+%     \item \Cref{sec:trabajos_relacionados}: enumera trabajos relacionados con el presente.
+%     \item \Cref{sec:conclusiones}: muestra las conclusiones, limitaciones y posibles continuaciones de este trabajo.
+% \end{itemize}
+El \cref{sec:metodologia} explica la metodología utilizada; 
+el \cref{sec:afiliaciones} trata las distintas categorías de afiliaciones de la \acrshort{osu} y el cálculo de sus cuotas;
+el \cref{sec:motores} enumera lo motores de reglas considerados y el razonamiento detrás de la selección realizada dentro de las opciones;
+el \cref{sec:integracion} explica como se realizó la integración del motor de reglas seleccionado con el {\SIOSU};
+el \cref{sec:resultados} expone los resultados obtenidos en el trabajo;
+el \cref{sec:trabajos_relacionados} enumera trabajos relacionados con el presente; y
+el \cref{sec:conclusiones} muestra las conclusiones, limitaciones y posibles continuaciones de este trabajo.
