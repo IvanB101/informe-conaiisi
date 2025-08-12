@@ -1,18 +1,26 @@
 \section{Metodología} \label{sec:metodologia}
 
-La pregunta central de este trabajo, ímplícita en el \cref{sec:intro} es ¿Es posible un {\SIOSU} ágil?, donde la agilidad es la capacidad de adaptarse con esfuerzo mínimo a cambios en las reglamentaciones de la organización que soporta. Responer a esta pregunta demanda una comprensión profunda de la situación actual.
-Para esto se partió de la lectura y estudio de las ordenanzas y documentos detallando los aspectos necesarios de \acrshort{dospu} y las fórmulas utilizadas para el cálculo de las cuotas de sus afiliados, que fue complementada con reuniones con miembros del equipo de desarrollo {\SIDOSPU} para despejar dudas y/o establecer oportunidades. De igual forma, se indagó sobre las tecnologías utilizadas en el sistema y la materialización de las reglas de negocio implementadas en el mismo.
+El enfoque adoptado combina pasos de metodologías de desarrollo de software y de metodologías de investigación científica, poniendo en juego conocimiento y habilidades adquiridos en el cursado de la Ingeniería en Informática de la \acrshort{unsl} en cada tarea ejecutada.
 
-Con base en la información obtenida, se definieron pruebas adicionales para el \acrshort{si}, utilizando una combinación de \acrfull{avl} y casos Ad Hoc para capturar el comportamiento esperado por el sistema y porteriormente comprobarlo.
+Se partió de la lectura y estudio de las ordenanzas y documentos detallando aspectos relevantes de \acrshort{dospu} y las fórmulas utilizadas para el cálculo de las cuotas de sus afiliados, que fue complementada con reuniones con miembros del equipo de desarrollo {\SIDOSPU} para despejar dudas y/o establecer oportunidades. 
+De igual forma, se indagó sobre las tecnologías utilizadas en el sistema y la materialización de las reglas de negocio implementadas en el mismo.
 
-Adicionalmente, durante el estudio del código fuente encargado del cálculo de las cuotas, se detectaron oportunidades de mejora. En consecuencia, como paso intermedio, para mejorar la calidad del código y tener un mejor punto de partida para la posterior comparación con el motor de reglas se realizó un refactorizado de la parte del sistema correspondiente. Esta refactorización consistió principalmente en el uso de patrones de programación funcional para el manejo de errores.
+Se extendieron los casos de prueba ya utilizados en el ciclo de integración continua de {\SIDOSPU}.
+Estos nuevos casos se definieron en base a la información obtenida, utilizando una combinación de \acrfull{avl} y casos Ad Hoc para capturar el comportamiento esperado en un nivel de granularidad más fina y poder comprobarlo en cada paso ejecutado.
 
-Por otro lado, se relevaron motores de reglas que se ajusten a las necesidades de expresividad requeridas para la materialización de las reglas de negocio de una \acrshort{osu}, y a las tecnologías de implementación del {\SIDOSPU}. Partiendo de la información obtenida en este relevamiento, se realizó la selección del motor que se consideró más apropiado.
+Adicionalmente, durante el estudio del código fuente encargado del cálculo de las cuotas, se detectaron oportunidades de mejora. 
+En consecuencia, como paso intermedio, para mejorar la calidad del código y tener un mejor punto de partida para la posterior comparación con el motor de reglas, se realizó un refactorizado de la parte del sistema correspondiente. 
+Esta refactorización consistió principalmente en el uso de patrones de programación funcional para el manejo de errores monádico.
 
-Luego se incorporó el motor de reglas en el {\SIDOSPU}. Segidamente, se reimplementó parte del sistema recurriendo al motor de reglas para separar la especificación de las reglas de negocio del código fuente.
+Por otro lado, se relevaron motores de reglas que se ajusten a las necesidades de expresividad requeridas para la materialización de las reglas de negocio de una \acrshort{osu}, y a las tecnologías de implementación del {\SIDOSPU}. 
+Partiendo de este relevamiento, se realizó la selección del motor que se consideró más apropiado.
 
-Para facilitar la extracción de resultados, se extrajo la funcionalidad del cálculo de cuotas como una implementación de una interfaz Java (\scode{calculoCuotaService}). Del refactorizado del código y la integración del motor de reglas se generaron dos implementaciones adicionales de esta interfaz, las cuales coexisten en la base de código. Para la comparación de estas versiones se pueden utilizar dos métricas:
-\begin{itemize}
-    \item Líneas de código (cuantitativa): el número de líneas de código de las distintas versiones. En el caso de la implementación con el motor de reglas se utilizan en su lugar las filas de las tablas en las que se específican las reglas.
-    \item Esfuerzo para la comprensión de las reglas (cualitativa): consiste en realizar una estimación del esfuerzo requerido por parte de un programador para la comprensión de las reglas, utilizando las especificaciones de las mismas y el código fuento como base para dicha estimación.
-\end{itemize}
+Luego se incorporó el motor de reglas en el {\SIDOSPU}. 
+Segidamente, se reimplementó parte del sistema recurriendo al motor de reglas para separar la especificación de las reglas de negocio del código fuente.
+
+Esta nueva versión del cálculo de las cuotas convive con la mejorada y con la original. 
+Esto se consiguió definiendolas como implementaciones de una única interface Java y múltiples perfiles de Spring. 
+Esto facilitó el análisis de resultados obtenidos y verificaciones a partir de casos de prueba. 
+
+Para la comparación de entre las implementaciones se utilizó como métrica la cantidad de líneas de código.  
+En el caso de la implementación con el motor de reglas se utilizan en su lugar las filas de las tablas en las que se específican las reglas.
