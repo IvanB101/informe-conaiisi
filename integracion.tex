@@ -1,20 +1,19 @@
-\section{Integración con el SIDOSPU}\label{sec:integracion}
+\section{Integración}
+\label{sec:integracion}
 
-Para la integración de OpenL Tablets con el {\SIDOSPU} existen dos alternativas.
+Para la integración de OpenL Tablets con {\SIDOSPU} existen dos alternativas.
 
 La primera consiste en exponer las reglas por medio de un servicio web utilizando OpenL Rule Services. Esto nos permite integrar con distintas aplicaciones, sobre distintas plataformas, utilizar varias fuentes de datos y exponer varios proyectos y/o módulos mediante un único servicio web.
 
-La segunda consiste en incluir OpenL Tablets como dependencia en el sistema, utilizando sus clases para la generación de clases wrapper. Estas últimas se generan en tiempo de ejecución a partir del contenido de las tablas en documentos Excel, exponiendo las reglas definados en los mismos como métodos.
+La segunda alternativa consiste en incluir OpenL Tablets como biblioteca y generar clases wrapper. 
+Estas últimas se generan en tiempo de ejecución a partir del contenido de las tablas en documentos Excel, exponiendo las reglas definidas en los mismos como métodos.
 La principal ventaja de esta opción es que resulta en un menor costo de comunicación, dado que se realiza por medio de llamadas a métodos entre clases Java.
 
-Considerando que las reglas serán utilizadas únicamente por el {\SIOSU}, y estarán agrupadas en un único proyecto, lo que implide sacar partido de los beneficios mencionados, se decidió utilizar la segunda opción. 
-
-\subsection{Clases de integración}\label{ssec:integracion:clases}
-
-Como se mencionó en el \cref{sec:motores}, OpenL Tablets permite hacer uso directo de objetos Java dentro de las reglas. Asimismo, permite hacer uso de clases de forma directa.
-Sin embargo, las clases el {\SIDOSPU} lidia con cuestiones no del todo relevantes para el cálculo de las cuotas, como el manejo de errores y el acceso a datos que involucra comunicación con varias clases. Para evitar que estos aspectos se infiltren en las reglas de cálculo, se crearon clase que abstraen estos aspectos, \scode{Afiliacion}, \scode{Valores}. Además, se creó una clase \scode{Numero} para poder operar sobre valores de tipo \scode{BigDecimal} utilizando operadores comunes (+, -, *, /, etc.).
-
-Esto resulta en el diagrama de la \cref{fig:integration} donde podemos ver la partes involucradas en la integración del motor de reglas con el sistema. Los rectángulos sin bordes redondeados representan una o varias clases Java, siendo la comunicación entre las mismas por llamado de sus respectivos métodos.
+Considerando que las reglas serán utilizadas únicamente por {\SIDOSPU}, y estarán en un único proyecto, no pudiéndose sacar partido de los beneficios de un servicio web, se decidió utilizar la segunda opción. 
+%
+%
+El diagrama en la \cref{fig:integration} muestra un esquema de la integración resultante. 
+Los rectángulos representan una o varias clases Java, siendo la comunicación entre las mismas por llamado de sus respectivos métodos.
 
 \begin{figure*}
     \centering
@@ -44,8 +43,19 @@ Esto resulta en el diagrama de la \cref{fig:integration} donde podemos ver la pa
     \label{fig:integration}
 \end{figure*}
 
+
+\subsection{Clases de integración}\label{ssec:integracion:clases}
+
+Como se mencionó en el \cref{sec:motores}, OpenL Tablets permite hacer uso directo de objetos Java dentro de las reglas. 
+Asimismo, permite hacer uso de clases de forma directa.
+Sin embargo, las clases el {\SIDOSPU} lidia con cuestiones no del todo relevantes para el cálculo de las cuotas, como el manejo de errores y el acceso a datos que involucra comunicación con varias clases. Para evitar que estos aspectos se infiltren en las reglas de cálculo, se crearon clase que abstraen estos aspectos, \scode{Afiliacion}, \scode{Valores}. Además, se creó una clase \scode{Numero} para poder operar sobre valores de tipo \scode{BigDecimal} utilizando operadores comunes (+, -, *, /, etc.).
+
+
+
 \subsection{Formato de las tablas}
-OpenL Tablets ofrece una variadad de tipos de tablas con distintas utilidades, en este trabajo se hizo uso de tablas de configuración, búsqueda (lookup) y decisión. La tabla de decisión posee la mayor flexibilidad y es la utilizada para la mayor parte de la lógica implementada. La presentada más abajo es una versión considerablemente simplificada del formato de las tablas de este tipo, el formato detallado de las tablas, así como sus particularidades pueden encontrarse en la documentación \cite{openl-decision-table}.
+
+OpenL Tablets ofrece una variedad de tipos de tablas con distintas utilidades, en este trabajo se hizo uso de tablas de configuración, búsqueda y decisión. 
+La tabla de decisión posee la mayor flexibilidad y es la utilizada para la mayor parte de la lógica implementada. La presentada más abajo es una versión considerablemente simplificada del formato de las tablas de este tipo, el formato detallado de las tablas, así como sus particularidades pueden encontrarse en la documentación \cite{openl-decision-table}.
 
 \begin{description}
     \item[Fila 1: ] tipo de tabla y signatura.
