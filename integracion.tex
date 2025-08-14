@@ -50,12 +50,20 @@ Como se mencionó en el \cref{sec:motores}, OpenL Tablets permite hacer uso dire
 Asimismo, permite hacer uso de clases de forma directa.
 Sin embargo, las clases el {\SIDOSPU} lidia con cuestiones no del todo relevantes para el cálculo de las cuotas, como el manejo de errores y el acceso a datos que involucra comunicación con varias clases. Para evitar que estos aspectos se infiltren en las reglas de cálculo, se crearon clase que abstraen estos aspectos, \scode{Afiliacion}, \scode{Valores}. Además, se creó una clase \scode{Numero} para poder operar sobre valores de tipo \scode{BigDecimal} utilizando operadores comunes (+, -, *, /, etc.).
 
-
-
 \subsection{Formato de las tablas}
 
-OpenL Tablets ofrece una variedad de tipos de tablas con distintas utilidades, en este trabajo se hizo uso de tablas de configuración, búsqueda y decisión. 
-La tabla de decisión posee la mayor flexibilidad y es la utilizada para la mayor parte de la lógica implementada. La presentada más abajo es una versión considerablemente simplificada del formato de las tablas de este tipo, el formato detallado de las tablas, así como sus particularidades pueden encontrarse en la documentación \cite{openl-decision-table}.
+% OpenL Tablets ofrece una variedad de tipos de tablas con distintas utilidades, en este trabajo se hizo uso de tablas de configuración, búsqueda y decisión. 
+% La tabla de decisión posee la mayor flexibilidad y es la utilizada para la mayor parte de la lógica implementada. 
+
+OpenL Tablets ofrece una variedad de tipos de tablas con con distintos fines \cite{openl-decision-table}.
+En esta publicación describiremos brevemente el formato de las tablas de decisión, con la cual se especifica en su mayor parte la lógica de negocio.
+
+\begin{table*}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{voluntario.png}
+    \caption{Cálculo modificado voluntario adherente}
+    \label{tbl:cambio:original}
+\end{table*}
 
 \begin{description}
     \item[Fila 1: ] tipo de tabla y signatura.
@@ -91,12 +99,7 @@ Sin el uso del motor de reglas, este cambio implica el cambio/adición de una 32
 
 Por otra parte, haciendo uso del OpenL Tablets, con la integración descrite, se requiere realizar los cambios entre los cuadros \ref{tbl:cambio:original} y \ref{tbl:cambio:cambiado}. El cambio es detectado en tiempo de ejecución y se generan las nuevas clases wrapper, sin necesidad de volver a compilar o desplegar el sistema.
 
-\begin{table*}
-    \centering
-    \includegraphics[width=0.8\textwidth]{voluntario.png}
-    \caption{Cálculo modificado voluntario adherente}
-    \label{tbl:cambio:original}
-\end{table*}
+
 
 \begin{table*}
     \centering
