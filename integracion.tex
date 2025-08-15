@@ -155,15 +155,53 @@ El valor de retorno varía en este caso, ya que se utiliza el \acrshort{cmmu} en
 
 \subsection{Cuota de voluntario jubilado}
 
-En el \cref{tbl:calculo:jubilado} se pueden ver las tablas correspondientes al cálculo de la cuota base (sin aportes adicionales) de la subcategoría voluntario jubilado (ver \cref{sssec:jubilado}). Los parámetros de las reglas utilizan las clases de integración mencionadas (ver \cref{ssec:integracion:clases}) Se eligió esta parte de las reglas de negocio dado que es el cálculo más complejo dentro de las subcategorías, ocupando más de 150 líneas de código en la implementación original en el \acrshort{si}.
+El cálculo del monto a abonar por jubilados es uno de los más complejos (junto con el caso de los voluntarios adherentes).
+El mismo ocupa más de 150 líneas de código Java en la implementación original del \acrshort{si}.
+
+Es cálculo inicia con el \cref{tbl:calculo:jubilado:1}.
+Se debe notar un atajo utilizado en la notación para las expresiones de las dos condiciones, \tblcode{C1} y \tblcode{C2}.
+Se coloca unicamente, el nombre del campo, que se obtiene del parámetro \tblcode{Afiliado}, cuando la expresión buscada es una igualdad con los valores que se colocaran en las celdas debajo.
+Entonces, si el afiliado no tiene haber percibido actualizado, se retorna el valor calculado en el \cref{tbl:calculo:jubilado:sinhaber}. 
+En caso de si tenerlo, el cálculo continua con el 
+\cref{tbl:calculo:jubilado:conconyuge} o con el \cref{tbl:calculo:jubilado:sinconyuge}, dependiendo de si el afiliado tiene un cónyuge o conviviente que también sea titular en la obra social, o no.
 
 \begin{table*}
     \centering
-    \includegraphics[width=0.9\textwidth]{jubilado.png}
-    \includegraphics[width=0.8\textwidth]{jubiladoBase.png}
-    \includegraphics[width=0.65\textwidth]{jubiladoSinHaber.png}
+    \includegraphics[width=.93\textwidth]{jubilado.png}
+    \caption{Cálculo de cuota de jubilado}
+    \label{tbl:calculo:jubilado:1}
+\end{table*}
+
+El cálculo del monto para un afiliado sin haber actualizado se muestra en el \cref{tbl:calculo:jubilado:sinhaber}.
+Se toma como monto la cuota máxima de jubilado por un modificador, que depende de si el afiliado tiene un cónyuge o conviviente como afiliado familiar.
+
+\begin{table*}
+    \centering
+    \includegraphics[width=0.7\textwidth]{jubiladoSinHaber.png}
+    \caption{Cálculo de cuota de jubilado sin haber actualizado}
+    \label{tbl:calculo:jubilado:sinhaber}
+\end{table*}
+
+
+\begin{table*}
+    \centering
+    \includegraphics[width=1\textwidth]{jubiladoConConyuge.png}
+    \caption{Cálculo de cuota de jubilado con cónyuge}
+    \label{tbl:calculo:jubilado:conconyuge}
+\end{table*}
+
+
+\begin{table*}
+    \centering
     \includegraphics[width=0.7\textwidth]{jubiladoSinConyuge.png}
-    \includegraphics[width=\textwidth]{jubiladoConConyuge.png}
+    \caption{Cálculo de cuota de jubilado sin cónyuge}
+    \label{tbl:calculo:jubilado:sinconyuge}
+\end{table*}
+
+
+\begin{table*}
+    \centering
+    \includegraphics[width=0.8\textwidth]{jubiladoBase.png}
     \includegraphics[width=0.8\textwidth]{jubiladoConConyugeResponsable.png}
     \caption{Cálculo cuota base jubilado}
     \label{tbl:calculo:jubilado}
