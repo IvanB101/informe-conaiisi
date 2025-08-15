@@ -71,6 +71,20 @@
 % \newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 % \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
 
+\usepackage{minted}
+\setminted[]{
+    breaklines,
+    breakafter=(.,
+    fontsize=\scriptsize,
+    escapeinside=||,
+    % frame=single,
+    rulecolor=\color{black},
+    tabsize=2,
+}
+\setmintedinline[]{
+    fontsize=\scriptsize,
+}
+
 \input{commands}
 
 \input{environments}
@@ -81,6 +95,10 @@
 
 % Para quitar números de página
 \pagestyle{empty}
+
+\hyphenation{%
+    subcategoria-afiliacion-ascendiente-mas-diez-antiguedad
+}
 
 \begin{document}
     % \maketitle
