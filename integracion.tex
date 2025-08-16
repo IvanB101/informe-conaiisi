@@ -233,10 +233,8 @@ El cálculo de la cuota de un afiliado agente \acrshort{unsl} con licencia será
 De igual forma, dicho monto no puede ser inferior a los porcentajes de la \acrshort{cmmu} que se utilizan en el cálculo anteriormente presentado para la subcategoría.
 }
 
-Sin el uso del motor de reglas, este cambio implica el cambio/adición de una 32 líneas de código. Seguidamente, se debe volver a compilar y desplegar el sistema para hacer estos cambios efectivos.
-
-Haciendo uso de la integración descrita, se requiere realizar el cambio del \cref{tbl:cambio:original} al \cref{tbl:cambio:cambiado}. 
-El cambio es detectado en tiempo de ejecución y se generan las nuevas clases wrapper, sin necesidad de volver a compilar o desplegar el sistema.
+Para implementar el cambio, basta modificar la especificación en el \cref{tbl:cambio:original} para que quede como el \cref{tbl:cambio:cambiado}. 
+En este último hay una fila adicional considerando el caso especial introducido para el afiliado agente \acrshort{unsl} con licencia.
 
 \begin{table*}
     \centering
