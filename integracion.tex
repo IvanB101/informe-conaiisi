@@ -162,8 +162,8 @@ Es cálculo inicia con el \cref{tbl:calculo:jubilado:1}.
 Se debe notar un atajo utilizado en la notación para las expresiones de las dos condiciones, \tblcode{C1} y \tblcode{C2}.
 Se coloca unicamente, el nombre del campo, que se obtiene del parámetro \tblcode{Afiliado}, cuando la expresión buscada es una igualdad con los valores que se colocaran en las celdas debajo.
 Entonces, si el afiliado no tiene haber percibido actualizado, se retorna el valor calculado en el \cref{tbl:calculo:jubilado:sinhaber}. 
-En caso de si tenerlo, el cálculo continua con el 
-\cref{tbl:calculo:jubilado:conconyuge} o con el \cref{tbl:calculo:jubilado:sinconyuge}, dependiendo de si el afiliado tiene un cónyuge o conviviente que también sea titular en la obra social, o no.
+En caso de si tenerlo, 
+el cálculo continua con el \cref{tbl:calculo:jubilado:sinconyuge} o con el \cref{tbl:calculo:jubilado:conconyuge}, dependiendo de si el afiliado tiene un cónyuge o conviviente que también sea titular en la obra social, o no.
 
 \begin{table*}
     \centering
@@ -173,15 +173,41 @@ En caso de si tenerlo, el cálculo continua con el
 \end{table*}
 
 El cálculo del monto para un afiliado sin haber actualizado se muestra en el \cref{tbl:calculo:jubilado:sinhaber}.
-Se toma como monto la cuota máxima de jubilado por un modificador, que depende de si el afiliado tiene un cónyuge o conviviente como afiliado familiar.
+Se toma como monto la cuota máxima de jubilado por un modificador, el cual se define dependiendo de si tiene un cónyuge o conviviente como afiliado familiar.
+El caso para voluntario jubilado sin cónyuge titular (responsable de pago) es similar.
+El mismo se trata en el \cref{tbl:calculo:jubilado:sinconyuge}.
+La diferencia es que que se usa la fórmula de cálculo en base a su haber percibido \cref{tbl:calculo:jubilado:base}, en lugar de la cuota máxima de jubilado.
 
 \begin{table*}
     \centering
-    \includegraphics[width=0.7\textwidth]{jubiladoSinHaber.png}
+    \includegraphics[width=0.70\textwidth]{jubiladoSinHaber.png}
     \caption{Cálculo de cuota de jubilado sin haber actualizado}
     \label{tbl:calculo:jubilado:sinhaber}
 \end{table*}
 
+
+\begin{table*}
+    \centering
+    \includegraphics[width=0.71\textwidth]{jubiladoSinConyuge.png}
+    \caption{Cálculo de cuota de jubilado sin cónyuge titular}
+    \label{tbl:calculo:jubilado:sinconyuge}
+\end{table*}
+
+\begin{table*}
+    \centering
+    \includegraphics[width=0.63\textwidth]{base.png}
+    \caption{Cálculo cuota base jubilado}
+    \label{tbl:calculo:jubilado:base}
+\end{table*}
+
+El caso de voluntario jubilado con cónyuge titular requiere dos tablas. 
+La primera se puede ver en el \cref{tbl:calculo:jubilado:conconyuge}.
+En ella se comprueba si su cónyuge es también voluntario jubilado titular.
+En caso de serlo, dependiendo de su condición, que debe estar habilitado o en su defecto moroso, y si es responsable de pago y tiene su haber percibido actualizado, se utiliza el \cref{tbl:calculo:jubilado:conyuge:responsable}.
+Cabe aclarar que puede ser titular, pero no ser responsable de pago, si su cónyuge pague su cuota. 
+En el \cref{tbl:calculo:jubilado:conyuge:responsable} se controla si el voluntario al que se le está cobrando, que tiene cónyuge que también es voluntario jubilado, es el de menor ingresos, para hacer el descuento en el monto.
+El tratamiento de este caso puede parecer controlar de manera redundante algunas condiciones. 
+Esto es por que el tratamiento de cada afiliado titular de hace de manera independiente, no como grupo familiar.
 
 \begin{table*}
     \centering
@@ -190,39 +216,31 @@ Se toma como monto la cuota máxima de jubilado por un modificador, que depende 
     \label{tbl:calculo:jubilado:conconyuge}
 \end{table*}
 
-
 \begin{table*}
     \centering
-    \includegraphics[width=0.7\textwidth]{jubiladoSinConyuge.png}
-    \caption{Cálculo de cuota de jubilado sin cónyuge}
-    \label{tbl:calculo:jubilado:sinconyuge}
+    \includegraphics[width=0.85\textwidth]{jubiladoConConyugeResponsable.png}
+    \caption{Cálculo cuota jubilado con cónyuge}
+    \label{tbl:calculo:jubilado:conyuge:responsable}
 \end{table*}
 
+\subsection{Simulando un cambio}
+\label{ssec:integracion:cambio}
 
-\begin{table*}
-    \centering
-    \includegraphics[width=0.8\textwidth]{jubiladoBase.png}
-    \includegraphics[width=0.8\textwidth]{jubiladoConConyugeResponsable.png}
-    \caption{Cálculo cuota base jubilado}
-    \label{tbl:calculo:jubilado}
-\end{table*}
-
-\subsection{Realizando un cambio}\label{ssec:integracion:cambio}
-Para ilustrar las ventajas de estos cambios en el \SIDOSPU a la hora de realizar cambios en las reglas, consideremos la aplicación del siguiente cambio en el valor de las cuotas:
+Para ilustrar las ventajas de integrar el motor de reglas, consideremos la aplicación del siguiente cambio.
 
 \emph{
-    Para el cálculo de la cuota de un afiliado con categoría voluntario adherente y subcategoría agente \acrshort{unsl} con licencia, el monto de la cuota es equivalente al monto de los aportes y contribuciones 9\% del sueldo bruto que percibiría como si estuviera en actividad. De igual forma, dicho monto no puede ser inferior a los porcentajes de la \acrshort{cmmu} que se utilizan en el cálculo anteriormente presentado para la categoría y subcategoría.
+El cálculo de la cuota de un afiliado agente \acrshort{unsl} con licencia será equivalente al 9\% del sueldo bruto que percibiría si estuviera en actividad. 
+De igual forma, dicho monto no puede ser inferior a los porcentajes de la \acrshort{cmmu} que se utilizan en el cálculo anteriormente presentado para la subcategoría.
 }
 
-Sin el uso del motor de reglas, este cambio implica el cambio/adición de una 32 líneas de código. Seguidamente, se debe volver a compilar y desplegar el sistema hacer estos cambios efectivos.
+Sin el uso del motor de reglas, este cambio implica el cambio/adición de una 32 líneas de código. Seguidamente, se debe volver a compilar y desplegar el sistema para hacer estos cambios efectivos.
 
-Por otra parte, haciendo uso del OpenL Tablets, con la integración descrite, se requiere realizar los cambios entre los cuadros \ref{tbl:cambio:original} y \ref{tbl:cambio:cambiado}. El cambio es detectado en tiempo de ejecución y se generan las nuevas clases wrapper, sin necesidad de volver a compilar o desplegar el sistema.
-
-
+Haciendo uso de la integración descrita, se requiere realizar el cambio del \cref{tbl:cambio:original} al \cref{tbl:cambio:cambiado}. 
+El cambio es detectado en tiempo de ejecución y se generan las nuevas clases wrapper, sin necesidad de volver a compilar o desplegar el sistema.
 
 \begin{table*}
     \centering
-    \includegraphics[width=0.8\textwidth]{voluntario_cambios.png}
+    \includegraphics[width=1\textwidth]{voluntario_cambios.png}
     \caption{Cálculo modificado voluntario adherente modificado}
     \label{tbl:cambio:cambiado}
 \end{table*}
