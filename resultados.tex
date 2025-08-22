@@ -3,12 +3,13 @@
 
 Los resultados principales son mejoras en la mantenibilidad: en el esfuerzo requerido para materializar un cambio, y en la legibilidad del código fuente.
 
-Para evaluar el esfuerzo requerido para implementar un cambio consideremos dos escenarios.
-Sin el uso del motor de reglas, el cambio descripto en el \cref{ssec:integracion:cambio} implica la modificación/adición de una 32 líneas de código.
-Seguidamente, se debe volver a compilar y desplegar el sistema para que estos cambios efectivos.
+Para evaluar el esfuerzo requerido para implementar un cambio, consideremos dos escenarios para el cambio descrito en el \cref{ssec:integracion:cambio}: 
+sobre el sistema original, o sobre el sistema con el motor de reglas integrado. 
+En el primer escenario, el cambio implica la modificación/adición de unas 32 líneas de código.
+Seguidamente, se debe volver a compilar y desplegar el sistema para que estos cambios sean efectivos.
 %
-Utilizando el motor de reglas el cambio mostrado en el \cref{tbl:cambio:cambiado} es en el acto.
-El mismo es detectado en tiempo de ejecución y se generan nuevas clases wrapper en tiempo de ejecución, sin necesidad de volver a compilar el código fuente, o desplegar una nueva versión del sistema.
+En el segundo escenario, el cambio se materializa en el acto.
+En tiempo de ejecución, el cambio es detectado y se generan nuevas clases wrapper, sin necesidad de volver a compilar el código fuente, o desplegar una nueva versión del sistema.
 
 
 La legibilidad del código fuente se estudió utilizando como métrica cuantitativa la cantidad de líneas de código que corresponden a la totalidad de las líneas responsables del cálculo de las cuotas.
