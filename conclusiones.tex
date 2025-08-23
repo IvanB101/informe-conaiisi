@@ -1,23 +1,33 @@
 \section{Conclusión y Trabajos Futuros}\label{sec:conclusiones}
 
-Revisando los objetivos plantedos en el \cref{sec:intro}: en el \cref{sec:afiliaciones} se puede ver las reglas extraídas de la documentación mencionada en el \cref{sec:metodologia} (objetivo \ref{obj:esp:extraer}).
+En esta publicación describimos la integración del motor de reglas OpenL Tablets a
+{\SIDOSPU} en el marco de un proyecto integrador final de la carrera de {\CARRERA}.
+%
+La misma muestra evidencia del grado de concreción de los objetivos planteados para el trabajo, según fueron descritos en el \cref{sec:intro}. 
 
-Adicionalmente, como se puede ver en el \cref{sec:resultados}, la introducción del motor de reglas permitió una reducción considerable en la cantidad de líneas necesarias para implementar el cálculo de las cuotas de afiliaciones. De esta reducción se infiere una mejora en la legibilidad (objetivo \ref{obj:esp:intelegible}).
+El objetivo \ref{obj:esp:extraer} plantea extraer las reglas de negocio de reglamentaciones y del mismo código fuente. 
+En el \cref{sec:afiliaciones} se pueden ver dichas reglas obtenidas de acuerdo a como se explicó en el \cref{sec:metodologia}. 
 
-Por otra parte, en el \cref{sec:integracion} se mencionó que estas reglas son almacenadas en documentos Excel, lo cual las separa de la base de código del sistema (objetivo \ref{obj:esp:independiente}), pudiendo gestionar estos documentos por separado. Asimismo, las clases wrapper utilizadas para acceder a las reglas pueden ser cambiadas en tiempo de ejecución, permitiendo realizar cambios sin la necesidad de volver a compilar o desplegar el sistema (objetivo \ref{obj:esp:esfuerzo}).
+El objetivo \ref{obj:esp:intelegible} requiere un utilizar un lenguaje para expresar las reglas que sea inteligible para el personal de una \acrshort{osu}.
+Se estima que el personal podrá utilizar de manera efectiva las planillas de cálculo para mantener actualizadas las reglas del negocio en el sistema.
+Sin embargo, esto podría verificarse luego de establecer un proceso de negocio que incorpore el resto de las herramientas de gestión provistas por OpenL Tablets y que se capacite adecuadamente a dicho personal. 
+Ambas tareas afuera del alcance del presente proyecto integrador final.
 
-\subsection{Limitaciones}
-Actualmente, las reglas deben ser modificadas mediante la edición de los documentos Excel que las contienen. Las herramientas para documentos con este formator carecen de herramientas para la validación y versionado de las reglas, ya que el formato que utizan no es nativo de Excel.
+El objetivo \ref{obj:esp:independiente} apunta a gestionar las especificaciones de las reglas de negocio separadas del sistema. 
+Como pudo observarse en el \cref{sec:integracion}, las reglas son almacenadas en archivos Excel, separadas del sistema, y pueden ser gestionadas de manera independiente.
 
-A su vez, queda pendiente una medición del impacto real en la reducción del esfuerzo necesario para la compresión de las reglas por el personal de la \acrshort{osu}.
+El objetivo \ref{obj:esp:esfuerzo} requiere reducir el esfuerzo para materializar cambios en las reglas del negocio.
+Como fue explicado en el \cref{sec:resultados}, las clases wrapper utilizadas para acceder a las reglas pueden ser cambiadas en tiempo de ejecución, permitiendo realizar cambios sin la necesidad de volver a compilar y desplegar el sistema.
 
-\subsection{Trabajos Futuros}
+Este trabajo continua haciendo foco en mejorar el proceso de cambio de las reglas de negocio.
+%
+Actualmente, las reglas deben ser modificadas mediante la edición de los documentos Excel que las contienen. 
+Las aplicaciones para este tipo de documentos carecen de herramientas para la validación y versionado de las reglas, ya que el formato que utilizan no es nativo de Excel, sino propio de OpenL Tablets.
+Esta situación es proclive a errores.
 
-\subsubsection{Continuar con la parámetrización del SI}
-La continuación más natural para este trabajo es la parametrización de otras reglas de la \acrshort{osu}, utilizando las tecnologías descritas anteriormente, como por ejemplo el cálculo de las coberturas de las prácticas.
+Para evitar esto, y a su vez facilitar la gestión de reglas por parte del personal de la {osu}, se podría hacer uso de OpenL Studio, configurándolo para que funcione en conjunto con el \acrshort{si} actual. 
+OpenL Studio brinda un editor para las reglas, permitiendo la validación de las mismas en el editor, así como herramientas para el control de versiones y la restricción del acceso, permitiendo solo a personal con las credenciales adecuadas para que realice cambios.
 
-\subsubsection{Mejora en la gestión de reglas}
-Para facilitar la gestión de reglas por parte del personal de \acrshort{dospu}, se podría hacer uso de OpenL Studio, configurandolo para que funcione en conjunto con el \acrshort{si} actual. OpenL Studio brinda un editor para las reglas, permitiendo la validación de las mismas en el editor, así como herramientas para el control de versiones y la restricción del acceso, permitiendo solo a personal con las credenciales adecuadas para que realice cambios.
+A su vez, queda pendiente verificar de manera experimental si el personal de la \acrshort{osu} (sin formación en programación) puede hacer uso del lenguaje definido por expresar las reglas de negocio en OpenL Tablets. 
 
-\subsubsection{Estudio de la inteligibilidad}
-Se podría realizar una estimación del esfuerzo necesario para la compresión de las reglas con el nuevo formato o una medición del tiempo necesario para que un miembro del personal de la \acrshort{osu} pueda realizar un cambio en las reglas de forma correcta, por ejemplo.
+Por supuesto, el trabajo también puede continuar verificando si es posible parametrizar otras reglas de negocio de la \acrshort{osu}, como por ejemplo, con las utilizadas para el cálculo de las coberturas de las prácticas.
