@@ -117,13 +117,19 @@
 
 \input{resultados}
 
-% \input{trabajos_relacionados}
-
 \input{conclusiones}
 
-% \input{agradecimientos}
+\ifblind
+    \input{agradecimientos-blind}
+\else
+    \input{agradecimientos}
+\fi
 
 \printbibliography
 
-% \input{contacto}
+\ifblind
+    \input{contacto-blind}
+\else
+    \input{contacto}
+\fi
 \end{document}
