@@ -1,6 +1,10 @@
 \documentclass[12pt,a4paper,spanish,twocolumn]{article} 
 \usepackage[spanish]{babel}
 
+\newif\ifblind
+% \blindfalse
+\blindtrue
+
 \setlength{\parindent}{0pt}
 
 \usepackage{sectsty}
@@ -24,19 +28,7 @@
 \usepackage{ragged2e}
 \usepackage[none]{hyphenat}
 
-% Agrega toc al toc
-\usepackage{tocbibind}
-
-\usepackage[acronym]{glossaries}
-\makeglossaries
-
-\input{acronyms}
-
 \usepackage[inline]{enumitem}
-
-\usepackage[sort&compress]{cleveref}
-\crefname{listing}{listado}{listados}
-\Crefname{listing}{Listado}{Listados}
 
 \usepackage{fontspec}
 \setmonofont{MesloLGS NF}
@@ -54,22 +46,24 @@
 % \usepackage{csquotes}
 \usepackage[backend=biber, style=numeric, sorting=none, bibstyle=numeric ,backref=true, autocite=inline, labelalpha=true, doi=false, url=false]{biblatex}
 \addbibresource{the.bib}
+\ifblind
+    \addbibresource{nuestro-blind.bib}
+\else
+    \addbibresource{nuestro.bib}
+\fi 
 
 % Use more than one optional parameter in a new commands
 \usepackage{xargs}                      
 
-% \usepackage[spanish,colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
-% \newcommandx{\desarrollar}[2][1=]{\todo[inline,linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
-% \newcommandx{\modificar}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
-% \newcommandx{\cambiarpor}[2][1=]{\todo[inline,linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{Cambiar $\uparrow$ por:\\#2}}
-\newcommandx{\revisar}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red, inline,#1]{#2}}
-% \newcommandx{\agregaren}[2][1=]{\todo[inline,linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{Agregar punto seguido $\uparrow$:\\#2}}
-% \newcommandx{\agregar}[2][1=]{\todo[inline,linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{Agregar:\\#2}}
-% \newcommandx{\info}[2][1=]{\todo[inline,linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
-% \newcommandx{\eliminar}[2][1=]{\todo[inline,linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{\textbf{Eliminar $\uparrow$:}\\#2}}
+\usepackage[acronym]{glossaries}
+\usepackage{glossaries-extra}
+% \setkeys{glslink}{hyper=false}
+\input{acronyms}
 
-% \newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
-% \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+\usepackage[sort&compress]{cleveref}
+\crefname{listing}{listado}{listados}
+\Crefname{listing}{Listado}{Listados}
+
 
 \usepackage{minted}
 \setminted[]{
@@ -101,35 +95,35 @@
 }
 
 \begin{document}
-    % \maketitle
-    \thistitle
+% \maketitle
+\thistitle
 
-    \justifying
-    \input{abstract}
+\justifying
+\input{abstract}
 
-    \begin{keywords}
+\begin{keywords}
     Obra social universitaria, motor de reglas, sistema informático, OpenL Tablets
-    \end{keywords}
+\end{keywords}
 
-    \input{introduccion}
+\input{introduccion}
 
-    \input{metodologia}
+\input{metodologia}
 
-    \input{motores}
+\input{motores}
 
-    \input{reglas}
+\input{reglas}
 
-    \input{integracion}
+\input{integracion}
 
-    \input{resultados}
+\input{resultados}
 
-    % \input{trabajos_relacionados}
+% \input{trabajos_relacionados}
 
-    \input{conclusiones}
+\input{conclusiones}
 
-    % \input{agradecimientos}
+% \input{agradecimientos}
 
-    \printbibliography
+\printbibliography
 
-    % \input{contacto}
+% \input{contacto}
 \end{document}
