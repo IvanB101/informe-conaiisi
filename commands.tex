@@ -1,19 +1,49 @@
+\newif\ifblind
+\blindfalse
+% \blindtrue
+
 \newcommand{\SIOSU}{\acrshort{si}--\acrshort{osu}}
+
 \newcommand{\SIDOSPU}{\acrshort{si}--\acrshort{dospu}}
 
-\newcommand{\CARRERA}{Ingeniería en Informática de la \acrfull{unsl}}
+\newcommand{\AUTHORS}{
+  \ifblind
+    Autores (oculto para revisión)
+  \else
+    Iván Brocas (autor), Alejandro Sánchez (tutor), Carlos H. Salgado (tutor)
+  \fi
+}
+
+\newcommand{\AFILIACION}{
+  \ifblind%
+    Afiliación (oculta para revisión)%
+  \else%
+    Universidad Nacional de San Luis, Facultad de Ciencias Físico Matemática y Naturales
+  \fi
+}
+
+\newcommand{\UNIVERSIDAD}{
+  \ifblind%
+    Institución (oculta para revisión)%
+  \else%
+    UNSL
+  \fi
+}
+
+\newcommand{\CARRERA}{Ingeniería en Informática de la \UNIVERSIDAD}
+
 
 \newcommand*{\thistitle}{
-\twocolumn[
-\bgroup
-	\centering
+  \twocolumn[
+    \bgroup
+    \centering
     {\fontsize{16pt}{17.2pt}\selectfont\bfseries Parametrizando un Sistema Informático para Obra Social Universitaria con un Motor de Reglas \par}
-	\vspace{0.5cm}
-  %   {\fontsize{14pt}{16.8pt}\selectfont\bfseries Iván Brocas (autor), Alejandro Sánchez (tutor), Carlos H. Salgado (tutor)  \par}
-	% {\fontsize{12pt}{14.4pt}\selectfont\bfseries\itshape Universidad Nacional de San Luis, Facultad de Ciencias Físico Matemática y Naturales \par}
-	\vspace{0.5cm}
-\egroup
-]
+    \vspace{0.5cm}
+    {\fontsize{14pt}{16.8pt}\selectfont\bfseries \AUTHORS \par}
+    {\fontsize{12pt}{14.4pt}\selectfont\bfseries\itshape \AFILIACION \par}
+    \vspace{0.5cm}
+    \egroup
+  ]
 }
 
 \newcommand{\code}[1]{{\texttt{#1}}}
@@ -31,14 +61,14 @@
 }
 
 \newcommand{\CenteredGraphic}[2]{%
-	{\centering \resizebox{#2\textwidth}{!}{\includegraphics{#1}} \\}
+  {\centering \resizebox{#2\textwidth}{!}{\includegraphics{#1}} \\}
 }
 
 \defbibheading{bibliography}[\refname]{%
   \section*{\fontsize{10pt}{12pt}\selectfont #1}%
 }
 \renewcommand*{\bibfont}{\fontsize{10pt}{12pt}\selectfont}
-\urlstyle{rm} 
+\urlstyle{rm}
 \DeclareFieldFormat{title}{\textnormal{#1}}
 \DeclareFieldFormat{journaltitle}{\textnormal{#1}}
 \DeclareFieldFormat{booktitle}{\textnormal{#1}}
