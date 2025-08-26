@@ -52,17 +52,14 @@ Sin embargo, las clases del {\SIDOSPU} lidian con cuestiones no del todo relevan
 Para evitar contaminar con estos aspectos las reglas de cálculo, se crearon clase que los abstraen:
 \begin{itemize}
     \item \scode{Afiliacion} encapsula complejidades de acceder a datos de la afiliación, como la categoría, subcategoría, si tiene cónyuge, etc.;
-    \item \scode{Valores}, de manera similar, abstrae el acceso a otros valores del sistema relevantes pare el cálculo, como por ejemplo, el \acrshort{cmmu}; y
+    \item \scode{Valores}, de manera similar, abstrae el acceso a otros valores del sistema relevantes para el cálculo, como por ejemplo, el \acrshort{cmmu}; y
     \item \scode{Numero}, para poder operar sobre valores de tipo \scode{BigDecimal} utilizando operadores tales como +, -, *, /, etc.
 \end{itemize}
 
 \subsection{Cuota de Voluntario adherente}
 
-% OpenL Tablets ofrece una variedad de tipos de tablas con distintas utilidades, en este trabajo se hizo uso de tablas de configuración, búsqueda y decisión. 
-% La tabla de decisión posee la mayor flexibilidad y es la utilizada para la mayor parte de la lógica implementada. 
-
 Esta sección sirve dos propósitos.
-Por un lado describe como se especifica el cálculo de la cuota para voluntarios adherentes, y por otro lado introduce la sintaxis de las reglas.
+Por un lado describe cómo se especifica el cálculo de la cuota para voluntarios adherentes, y por otro lado introduce la sintaxis de las reglas.
 
 OpenL Tablets ofrece una variedad de tipos de tablas \cite{openl}.
 Aquí describiremos brevemente el formato de las tablas de decisión, el cual es suficiente para expresar la lógica de negocio del cálculo de la cuota de afiliación.
@@ -77,31 +74,6 @@ A continuación describimos su formato.
     \label{tbl:cambio:original}
 \end{table*}
 
-
-% \begin{table*}[h]
-%     \centering
-%     \begin{tabular}{|p{7cm}|p{7cm}|}
-%         \hline
-%         \multicolumn{2}{|c|}{Rules Numero CalcularVoluntarioAdherente(Afiliacion afiliado, Valores valores)}                    \\ \hline
-%         C1                                                              & RET1                                                \\ \hline
-%         subcategoria                                                    &                                                     \\ \hline
-%                                                                         & Numero monto                                        \\ \hline
-%         subcategoria                                                    & Monto                                               \\ \hline
-%         subcategoria-afiliacion-ascendiente-mas-diez-antiguedad         & =CMMU20 * CoeficienteVoluntario(subcategoria, edad) \\ \hline
-%         subcategoria-afiliacion-conyuge-ascendiente-mas-diez-antiguedad &                                                     \\ \hline
-%                                                                         & =CMMU * CoeficienteVoluntario(subcategoria, edad)   \\ \hline
-%     \end{tabular}
-%     \caption{Data from calcva.xls}
-%     \label{tab:calcva}
-% \end{table*}
-
-% \begin{minted}{BNF}
-% Rules <signatura>
-% <signatura>::=<tipo> <nombre_tbl>(<pars>)
-% <pars>::=<tipo> <nombre>
-% \end{minted}
-
-
 La fila 1 contiene el encabezado de la tabla.
 En nuestro ejemplo: \tblcode{Rules} indica que la tabla contiene reglas,
 \tblcode{Numero} es el tipo de retorno y \tblcode{CalcularVoluntarioAdherente(Afiliacion afiliado, Valores valores)} es el nombre de la tabla con sus dos parámetros.
@@ -109,33 +81,13 @@ En nuestro ejemplo: \tblcode{Rules} indica que la tabla contiene reglas,
 La fila 2 define si la columna es una condición o valor de retorno, indicándose como  \tblcode{Cn} para la n-esima condición y \tblcode{RETn} para el n-esimo posible valor de retorno.
 En el ejemplo, se indica que las columnas 1 y 2 corresponden a condiciones, y que en la 3 está el valor de retorno.
 
-La fila 3 especifica la condición para cada columna en formato BEX \cite{openl}.
+% La fila 3 especifica la condición para cada columna en formato BEX \cite{openl}.
+La fila 3 especifica las expresiones correspondientes a las condiciones o retornos para cada columna en lenguaje BEX \cite{openl}.
 Para \tblcode{C1} del ejemplo, se especifica \tblcode{subcategoria==valor}.
 El lado izquierdo es inferido por nombre de uno de los atributos del parámetro \tblcode{afiliado} y el derecho se define en la fila 4.
-La celda vacía para \tblcode{RET1} indica que no hay condiciones para ese retorno y se evalúa a \tblcode{Verdadero}.
-
-% \begin{description}
-
-    % \item[Fila 1: ] Contiene el encabezado de la tabla.
-    %       En nuestro ejemplo: \tblcode{Rules} indica que la tabla contiene reglas,
-    %       \tblcode{Numero} es el tipo de retorno y \tblcode{CalcularVoluntarioAdherente(Afiliacion afiliado, Valores valores)} es el nombre de la tabla con sus dos parámetros.
-
-    % \item[Fila 2: ] Define si la/s columna/s es/son una condición o valor de retorno, indicándose como  \tblcode{Cn} para la n-esima condición y \tblcode{RET1} para el primer valor de retorno, respectivamente.
-    %       En el ejemplo, se indica que las columnas 1 y 2 corresponden a condiciones, y que en la 3 está el valor de retorno.
-
-    % \item[Fila 3: ] Especifica las condiciones para cada columna en formato BEX \cite{openl-bex}.
-    %       Para \tblcode{C1} del ejemplo, se especifica \tblcode{subcategoria==valor}, donde el lado izquierdo es inferido por nombre de uno de los atributos del parámetro \tblcode{afiliado} y el derecho se define en la fila 4.
-    %       La celda vacía para \tblcode{RET1} indica que no hay condiciones para ese retorno y se evalúa a \tblcode{Verdadero}.
-
-    % \item[Fila 4: ] Define un parámetro por columna cuyos valores se definen a partir de la fila 6.
-    %       Para \tblcode{C1} define de nombre \tblcode{valor} y tipo \tblcode{String}, y para \tblcode{RET1} el nombre \tblcode{monto} de tipo \tblcode{Numero}.
-
-    % \item[Fila 5: ] Contiene nombres descriptivos para los parámetros, ignorados por el motor.
-
-    % \item[Fila 6+:] Especifica los valores concretos para los parámetros.
-    %       También pueden contener expresiones matemáticas o llamadas a otras reglas.
-
-% \end{description}
+% La celda vacía para \tblcode{RET1} indica que no hay condiciones para ese retorno y se evalúa a \tblcode{Verdadero}.
+\revisar{La celda vacía es lo mismo que poner "monto", es decir que retorna el resultado de evaluar la expresión de la fila cuyas condiciones son ciertas, no se si queda claro con la oración abajo.}
+La celda vacía para \tblcode{RET1} indica que se retorna el resultado de evaluar las expresiones de las filas posteriores.
 
 La fila 4 define un parámetro por columna cuyos valores se definen a partir de la fila 6.
 Para \tblcode{C1} define de nombre \tblcode{valor} y tipo \tblcode{String}, y para \tblcode{RET1} el nombre \tblcode{monto} de tipo \tblcode{Numero}.
@@ -160,7 +112,7 @@ El mismo ocupa más de 150 líneas de código Java en la implementación origina
 
 Es cálculo inicia con el \cref{tbl:calculo:jubilado:1}.
 Se debe notar un atajo utilizado en la notación para las expresiones de las dos condiciones, \tblcode{C1} y \tblcode{C2}.
-Se coloca unicamente, el nombre del campo, que se obtiene del parámetro \tblcode{Afiliado}, cuando la expresión buscada es una igualdad con los valores que se colocaran en las celdas debajo.
+Se coloca únicamente, el nombre del campo, que se obtiene del parámetro \tblcode{Afiliado}, cuando la expresión buscada es una igualdad con los valores que se colocarán en las celdas debajo.
 Entonces, si el afiliado no tiene haber percibido actualizado, se retorna el valor calculado en el \cref{tbl:calculo:jubilado:sinhaber}. 
 En caso de si tenerlo, 
 el cálculo continua con el \cref{tbl:calculo:jubilado:sinconyuge} o con el \cref{tbl:calculo:jubilado:conconyuge}, dependiendo de si el afiliado tiene un cónyuge o conviviente que también sea titular en la obra social, o no.
@@ -172,11 +124,12 @@ el cálculo continua con el \cref{tbl:calculo:jubilado:sinconyuge} o con el \cre
     \label{tbl:calculo:jubilado:1}
 \end{table*}
 
+\revisar{El modificador es para cuando el afiliado tiene un conyuge que no está cargado como afiliación en el sistema, si estuviera cargado como familiar estaría en el caso de familiar el cálculo. No se si está aclaración es relevante o es demasiado específica.}
 El cálculo del monto para un afiliado sin haber actualizado se muestra en el \cref{tbl:calculo:jubilado:sinhaber}.
 Se toma como monto la cuota máxima de jubilado por un modificador, el cual se define dependiendo de si tiene un cónyuge o conviviente como afiliado familiar.
 El caso para voluntario jubilado sin cónyuge titular (responsable de pago) es similar.
 El mismo se trata en el \cref{tbl:calculo:jubilado:sinconyuge}.
-La diferencia es que que se usa la fórmula de cálculo en base a su haber percibido \cref{tbl:calculo:jubilado:base}, en lugar de la cuota máxima de jubilado.
+La diferencia es que se usa la fórmula de cálculo en base a su haber percibido \cref{tbl:calculo:jubilado:base}, en lugar de la cuota máxima de jubilado.
 
 \begin{table*}
     \centering
@@ -204,10 +157,11 @@ El caso de voluntario jubilado con cónyuge titular requiere dos tablas.
 La primera se puede ver en el \cref{tbl:calculo:jubilado:conconyuge}.
 En ella se comprueba si su cónyuge es también voluntario jubilado titular.
 En caso de serlo, dependiendo de su condición, que debe estar habilitado o en su defecto moroso, y si es responsable de pago y tiene su haber percibido actualizado, se utiliza el \cref{tbl:calculo:jubilado:conyuge:responsable}.
+\revisar{Antes se me había pasado, pero en caso de no ser responsable de pago, no sería de categoría familiar? En caso de ser esto cierto, además de esta condición, no veo demasiada redundancia en la regla.}
 Cabe aclarar que puede ser titular, pero no ser responsable de pago, si su cónyuge pague su cuota. 
 En el \cref{tbl:calculo:jubilado:conyuge:responsable} se controla si el voluntario al que se le está cobrando, que tiene cónyuge que también es voluntario jubilado, es el de menor ingresos, para hacer el descuento en el monto.
 El tratamiento de este caso puede parecer controlar de manera redundante algunas condiciones. 
-Esto es por que el tratamiento de cada afiliado titular de hace de manera independiente, no como grupo familiar.
+Esto es porque el tratamiento de cada afiliado titular se hace de manera independiente, no como grupo familiar.
 
 \begin{table*}
     \centering

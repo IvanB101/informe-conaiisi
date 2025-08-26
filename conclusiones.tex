@@ -6,9 +6,10 @@ En esta publicación describimos la integración del motor de reglas OpenL Table
 La misma muestra evidencia del grado de concreción de los objetivos planteados para el trabajo, según fueron descritos en el \cref{sec:intro}, a partir de los cuales el sistema se vuelve más mantenible y ágil frente a los cambios en la realidad socioeconómica del país.
 
 El objetivo \ref{obj:esp:extraer} plantea extraer las reglas de negocio de reglamentaciones y del mismo código fuente. 
-En el \cref{sec:afiliaciones} se pueden ver dichas reglas obtenidas de acuerdo a como se explicó en el \cref{sec:metodologia}. 
+% En el \cref{sec:afiliaciones} se pueden ver dichas reglas obtenidas de acuerdo a como se explicó en el \cref{sec:metodologia}. 
+En el \cref{sec:afiliaciones} se pueden ver dichas reglas obtenidas según se explicó en el \cref{sec:metodologia}. 
 
-El objetivo \ref{obj:esp:intelegible} requiere un utilizar un lenguaje para expresar las reglas que sea inteligible para el personal de una \acrshort{osu}.
+El objetivo \ref{obj:esp:intelegible} requiere utilizar un lenguaje para expresar las reglas que sea inteligible para el personal de una \acrshort{osu}.
 Se estima que el personal podrá utilizar de manera efectiva las planillas de cálculo para mantener actualizadas las reglas del negocio en el sistema.
 Sin embargo, esto podría verificarse luego de establecer un proceso de negocio que incorpore el resto de las herramientas de gestión provistas por OpenL Tablets y que se capacite adecuadamente a dicho personal. 
 Ambas tareas afuera del alcance del presente proyecto integrador final.
@@ -19,7 +20,7 @@ Como pudo observarse en el \cref{sec:integracion}, las reglas son almacenadas en
 El objetivo \ref{obj:esp:esfuerzo} requiere reducir el esfuerzo para materializar cambios en las reglas del negocio.
 Como fue explicado en el \cref{sec:resultados}, las clases wrapper utilizadas para acceder a las reglas pueden ser cambiadas en tiempo de ejecución, permitiendo realizar cambios sin la necesidad de volver a compilar y desplegar el sistema.
 
-Este trabajo continua haciendo foco en mejorar el proceso de cambio de las reglas de negocio.
+Este trabajo continúa haciendo foco en mejorar el proceso de cambio de las reglas de negocio.
 %
 Actualmente, las reglas deben ser modificadas mediante la edición de los documentos Excel que las contienen. 
 Las aplicaciones para este tipo de documentos carecen de herramientas para la validación y versionado de las reglas, ya que el formato que utilizan no es nativo de Excel, sino propio de OpenL Tablets.
@@ -28,6 +29,7 @@ Esta situación es proclive a errores.
 Para evitar esto, y a su vez facilitar la gestión de reglas por parte del personal de la {osu}, se podría hacer uso de OpenL Studio, configurándolo para que funcione en conjunto con el \acrshort{si} actual. 
 OpenL Studio brinda un editor para las reglas, permitiendo la validación de las mismas en el editor, así como herramientas para el control de versiones y la restricción del acceso, permitiendo solo a personal con las credenciales adecuadas para que realice cambios.
 
-A su vez, queda pendiente verificar de manera experimental si el personal de la \acrshort{osu} (sin formación en programación) puede hacer uso del lenguaje definido por expresar las reglas de negocio en OpenL Tablets. 
+% A su vez, queda pendiente verificar de manera experimental si el personal de la \acrshort{osu} (sin formación en programación) puede hacer uso del lenguaje definido por expresar las reglas de negocio en OpenL Tablets. 
+A su vez, queda pendiente verificar de manera experimental si el personal de la \acrshort{osu} (sin formación en programación) puede hacer uso del lenguaje definido por OpenL Tablets para expresar las reglas de negocio. 
 
 Por supuesto, el trabajo también puede continuar verificando si es posible parametrizar otras reglas de negocio de la \acrshort{osu}, como por ejemplo, con las utilizadas para el cálculo de las coberturas de las prácticas.

@@ -1,9 +1,8 @@
 \section{Motores de reglas}\label{sec:motores}
 
 La idea subyacente de los motores de reglas es externalizar la lógica del negocio. 
-Este puede ser visto como un intérprete sofisticado de sentencias \scode{if-then} (si-entonces). Estas sentencias, llamadas reglas están compuestas por: una condición, que evalúa a verdadero o falso, y una acción, que es ejecutada en el caso de que la condición evalúe a verdadero \cite{qusay2005jsr94}.
+Este puede ser visto como un intérprete sofisticado de sentencias \scode{if-then} (si-entonces). Estas sentencias, llamadas reglas, están compuestas por: una condición, que evalúa a verdadero o falso, y una acción, que es ejecutada en el caso de que la condición evalúe a verdadero \cite{qusay2005jsr94}.
 Asimismo, se suele hacer uso de un \acrfull{brms}, que consiste en un motor de reglas junto con herramientas para la gestión de las reglas de negocio.
-
 
 Dentro de los existentes, se realizó un relevamiento de algunos de los más utilizados en el entorno de desarrollo de Java, haciendo énfasis en los siguientes aspectos:
 \begin{enumerate*}[label=(\alph*)]
@@ -14,7 +13,7 @@ Dentro de los existentes, se realizó un relevamiento de algunos de los más uti
     \item 
     \label{comp:gestion}
     \textbf{Gestión de las reglas:}
-    ¿Que herramientas o mecanismos brinda para tareas de la gestión de las reglas, como la creación, modificación, eliminación, evaluación y versionado?
+    ¿Qué herramientas o mecanismos brinda para tareas de la gestión de las reglas, como la creación, modificación, eliminación, evaluación y versionado?
     \item 
     \label{comp:integracion}
     \textbf{Integración:}
@@ -30,6 +29,7 @@ Como parte de su estudio se realizaron ejemplos, los cuales pueden encontrarse e
 
 Teniendo en cuenta el objetivo \ref{obj:esp:independiente}, se descarta Rulebook como opción viable, dado que las reglas no deben estar dentro del código Java.
 
+\revisar{La forma en la que está escrito me hace pensar que fue un error siquiera considerarlo como opción}
 JESS, a diferencia de las demás opciones, no es de código abierto, y por lo tanto no es tenido en cuenta.
 
 Por otra parte, Easy Rules permite separar las reglas y el código. 
@@ -39,7 +39,7 @@ Esto deja a Drools y OpenL Tablets como opciones de interés para este trabajo, 
 %
 La expresividad (\cref{comp:expresividad}) que ambos proveen para las reglas resulta comparable. Dicho esto, las tablas de Excel utilizadas por OpenL Tablets probablemente resulten más familiares para la mayoría de personas que los diagramas con \acrfull{dmn} utilizados por Drools.
 %
-Con respecto a la gestión de reglas (\cref{comp:gestion}), tanto Drools como OpenL tablets cuentan con capacidades para creación, edición y eliminación de reglas, brindadas por DMN editor y OpenL Studio, respectivamente. 
+Con respecto a la gestión de reglas (\cref{comp:gestion}), tanto Drools como OpenL Tablets cuentan con capacidades para creación, edición y eliminación de reglas, brindadas por DMN editor y OpenL Studio, respectivamente. 
 La principal diferencia es que OpenL Studio también incluye herramientas para el versionado de las reglas.
 %
 Para la integración (\cref{comp:integracion}) ambas opciones son comparables, permitiendo hacer uso directo de objetos Java dentro de las reglas.
@@ -47,7 +47,7 @@ Para la integración (\cref{comp:integracion}) ambas opciones son comparables, p
 También se debe mencionar que ambos proyectos son -- hasta la última fecha de edición de esta sección, 19/07/2025 -- activamente mantenidos (\cref{comp:mantenimiento}).
 
 
-Además de los puntos en esta comparación, la principal diferencia entre ambas opciones fue que al trabajar con Drools se encontraron algunos problemas a la hora de gestionar las reglas. Teniendo en cuenta el objetivo \ref{obj:esp:intelegible}, se utilizaron los diagramas \acrshort{dmn} con expression escritas en \acrfull{feel}, los problemas fueron con los editores de reglas para este formato.
+Además de los puntos en esta comparación, la principal diferencia entre ambas opciones fue que al trabajar con Drools se encontraron algunos problemas a la hora de gestionar las reglas. Teniendo en cuenta el objetivo \ref{obj:esp:intelegible}, se utilizaron los diagramas \acrshort{dmn} con expressiones escritas en \acrfull{feel}, los problemas fueron con los editores de reglas para este formato.
 Utilizando Ubuntu 22.04.5 LTS, tanto en la extensión como la librería web de DMN Editor, se encontraron problemas para la importación de clases Java, modelos en otros archivos y declaraciones de tipos en expresiones. Estas funcionalidades funcionaban de forma errónea o no funcionaban en la PC utilizada para el desarrollo.
 
 A raíz de esta comparación, se considera que OpenL Tablets es la opción más apropiada para este trabajo.

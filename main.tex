@@ -30,6 +30,11 @@
 
 \usepackage[inline]{enumitem}
 
+\usepackage{xargs}                      
+\usepackage{tocbibind}
+\usepackage[spanish,colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\revisar}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red, inline,#1]{#2}}
+
 \usepackage{fontspec}
 \setmonofont{MesloLGS NF}
 \setmainfont{Times New Roman}
