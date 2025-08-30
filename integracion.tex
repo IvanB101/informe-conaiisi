@@ -85,9 +85,9 @@ En el ejemplo, se indica que las columnas 1 y 2 corresponden a condiciones, y qu
 La fila 3 especifica las expresiones correspondientes a las condiciones o retornos para cada columna en lenguaje BEX \cite{openl}.
 Para \tblcode{C1} del ejemplo, se especifica \tblcode{subcategoria==valor}.
 El lado izquierdo es inferido por nombre de uno de los atributos del parámetro \tblcode{afiliado} y el derecho se define en la fila 4.
-% La celda vacía para \tblcode{RET1} indica que no hay condiciones para ese retorno y se evalúa a \tblcode{Verdadero}.
-\revisar{La celda vacía es lo mismo que poner "monto", es decir que retorna el resultado de evaluar la expresión de la fila cuyas condiciones son ciertas, no se si queda claro con la oración abajo.}
-La celda vacía para \tblcode{RET1} indica que se retorna el resultado de evaluar las expresiones de las filas posteriores.
+
+La celda vacía para \tblcode{RET1} es un atajo a especificar ``monto''.
+Es decir, se retorna el resultado de evaluar la expresión de las fila cuyas condiciones son ciertas.
 
 La fila 4 define un parámetro por columna cuyos valores se definen a partir de la fila 6.
 Para \tblcode{C1} define de nombre \tblcode{valor} y tipo \tblcode{String}, y para \tblcode{RET1} el nombre \tblcode{monto} de tipo \tblcode{Numero}.
@@ -124,9 +124,8 @@ el cálculo continua con el \cref{tbl:calculo:jubilado:sinconyuge} o con el \cre
     \label{tbl:calculo:jubilado:1}
 \end{table*}
 
-\revisar{El modificador es para cuando el afiliado tiene un conyuge que no está cargado como afiliación en el sistema, si estuviera cargado como familiar estaría en el caso de familiar el cálculo. No se si está aclaración es relevante o es demasiado específica.}
 El cálculo del monto para un afiliado sin haber actualizado se muestra en el \cref{tbl:calculo:jubilado:sinhaber}.
-Se toma como monto la cuota máxima de jubilado por un modificador, el cual se define dependiendo de si tiene un cónyuge o conviviente como afiliado familiar.
+Se toma como monto la cuota máxima de jubilado por un modificador, el cual se define dependiendo de si tiene un cónyuge o conviviente como afiliado titular.
 El caso para voluntario jubilado sin cónyuge titular (responsable de pago) es similar.
 El mismo se trata en el \cref{tbl:calculo:jubilado:sinconyuge}.
 La diferencia es que se usa la fórmula de cálculo en base a su haber percibido \cref{tbl:calculo:jubilado:base}, en lugar de la cuota máxima de jubilado.
@@ -157,7 +156,6 @@ El caso de voluntario jubilado con cónyuge titular requiere dos tablas.
 La primera se puede ver en el \cref{tbl:calculo:jubilado:conconyuge}.
 En ella se comprueba si su cónyuge es también voluntario jubilado titular.
 En caso de serlo, dependiendo de su condición, que debe estar habilitado o en su defecto moroso, y si es responsable de pago y tiene su haber percibido actualizado, se utiliza el \cref{tbl:calculo:jubilado:conyuge:responsable}.
-\revisar{Antes se me había pasado, pero en caso de no ser responsable de pago, no sería de categoría familiar? En caso de ser esto cierto, además de esta condición, no veo demasiada redundancia en la regla.}
 Cabe aclarar que puede ser titular, pero no ser responsable de pago, si su cónyuge pague su cuota. 
 En el \cref{tbl:calculo:jubilado:conyuge:responsable} se controla si el voluntario al que se le está cobrando, que tiene cónyuge que también es voluntario jubilado, es el de menor ingresos, para hacer el descuento en el monto.
 El tratamiento de este caso puede parecer controlar de manera redundante algunas condiciones. 

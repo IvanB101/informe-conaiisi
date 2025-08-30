@@ -3,7 +3,6 @@
 Este proyecto integrador final se encuentra enmarcado en el contexto del desarrollo de un \acrfull{si} para \acrfullpl{osu} caracterizado por la centricidad en el afiliado y la agilidad. 
 Este trabajo se centra en la segunda, procurando reducir costos y tiempos de adaptación del sistema a cambios a partir de la introducción de un motor de reglas que permita separar del código fuente las reglas del negocio tendientes a cambiar.
 
-
 El \acrshort{si} de una \acrshort{osu} debe mantenerse ``vivo''. 
 El valor que provee su funcionamiento disminuye conforme pierde sintonía con los cambios que tanto la organización 
 como su contexto sufren. 
@@ -16,15 +15,13 @@ Su presidencia, el Rectorado, la Facultad de Ciencias Físico-Matemáticas y Nat
 %
 El nuevo sistema, \acrshort{si}-\acrshort{dospu}, está siendo desarrollado usando prácticas de las metodologías ágiles: scrum, product discovery, behaviour driven development, test driven development, e integración continua.
 %
-Las tecnologías de implementación incluyen, el lenguaje de programación Java, el framework Spring y la base de datos PostgreSQL para el backend, y Angular para el frontend. 
+Las tecnologías de implementación incluyen, el lenguaje de programación Java, el framework Spring \cite{springframework} y la base de datos PostgreSQL \cite{postgresql} para el backend, y Angular \cite{angular} para el frontend. 
 
 En un trabajo previo, documentado en \cite{Vela2024}, el foco estuvo sobre implementar el expendio de órdenes procurando la centricidad en el paciente.
 %
-% Este proyecto integrador aborda la agilidad requerida por {\SIOSU}, fácil de adaptar a cambios en el contexto socio-económico y en las reglamentaciones que regulan su funcionamiento.
 Este proyecto integrador aborda la agilidad requerida por el {\SIOSU}, entendida como la facilidad de adaptación a cambios en el contexto socio-económico y en las reglamentaciones que regulan su funcionamiento.
 
-% El objetivo es parametrizar {\SIDOSPU}, introduciendo un mecanismo que permita separar de las reglas de negocio de la organización de su \acrshort{si}. 
-El objetivo es parametrizar {\SIDOSPU}, introduciendo un mecanismo que permita separar las reglas de negocio de la organización de su \acrshort{si}. 
+El objetivo es parametrizar {\SIDOSPU}, introduciendo un mecanismo que permita separar las reglas de negocio de la organización, de su \acrshort{si}. 
 Se detectó que la reglamentación para el cálculo de la cuota de afiliados es compleja y muy susceptible a cambios en la realidad socio-económica del país. 
 Esto se debe a que la obra social busca equidad en la distribución de la carga de los aportes, lo que lleva a plantear diversos tipos de afiliación y fórmulas de cálculo de cuota. 
 Estas características convierten a dicha funcionalidad en candidata ideal para enfocar el esfuerzo.
@@ -46,7 +43,6 @@ Del objetivo se desprenden cuatro objetivos específicos:
 
 El logro de estos objetivos permitirá que cambios en las reglas de negocio puedan materializarse a través de la edición de especificaciones externas,  permitiendo la reducción en la incidencia a problemas mencionados anteriormente.
 
-\revisar{No deberían estar más adelante según el formato del informe?}
 \input{trabajos_relacionados.tex}
 
 El resto de este trabajo se encuentra dividido en:
