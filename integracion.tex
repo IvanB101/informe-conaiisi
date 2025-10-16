@@ -49,7 +49,7 @@ Los rectángulos representan una o varias clases Java, siendo la comunicación e
 Como se mencionó en el \cref{sec:motores}, OpenL Tablets permite hacer uso directo de objetos Java dentro de las reglas.
 Asimismo, permite hacer uso de clases de forma directa.
 Sin embargo, las clases del {\SIDOSPU} lidian con cuestiones no del todo relevantes para el cálculo de las cuotas, como el manejo de errores y el acceso a datos que involucra comunicación con varias clases.
-Para evitar contaminar con estos aspectos las reglas de cálculo, se crearon clase que los abstraen:
+Para evitar contaminar con estos aspectos las reglas de cálculo, se crearon clases que los abstraen:
 \begin{itemize}
     \item \scode{Afiliacion} encapsula complejidades de acceder a datos de la afiliación, como la categoría, subcategoría, si tiene cónyuge, etc.;
     \item \scode{Valores}, de manera similar, abstrae el acceso a otros valores del sistema relevantes para el cálculo, como por ejemplo, el \acrshort{cmmu}; y
@@ -87,10 +87,10 @@ Para \tblcode{C1} del ejemplo, se especifica \tblcode{subcategoria==valor}.
 El lado izquierdo es inferido por nombre de uno de los atributos del parámetro \tblcode{afiliado} y el derecho se define en la fila 4.
 
 La celda vacía para \tblcode{RET1} es un atajo a especificar ``monto''.
-Es decir, se retorna el resultado de evaluar la expresión de las fila cuyas condiciones son ciertas.
+Es decir, se retorna el resultado de evaluar la expresión de las filas cuyas condiciones son ciertas.
 
 La fila 4 define un parámetro por columna cuyos valores se definen a partir de la fila 6.
-Para \tblcode{C1} define de nombre \tblcode{valor} y tipo \tblcode{String}, y para \tblcode{RET1} el nombre \tblcode{monto} de tipo \tblcode{Numero}.
+Para \tblcode{C1} define nombre \tblcode{valor} y tipo \tblcode{String}, y para \tblcode{RET1} el nombre \tblcode{monto} de tipo \tblcode{Numero}.
 
 La fila 5 contiene nombres descriptivos para los parámetros, ignorados por el motor.
 
@@ -110,7 +110,7 @@ El valor de retorno varía en este caso, ya que se utiliza el \acrshort{cmmu} en
 El cálculo del monto a abonar por jubilados es uno de los más complejos (junto con el caso de los voluntarios adherentes).
 El mismo ocupa más de 150 líneas de código Java en la implementación original del \acrshort{si}.
 
-Es cálculo inicia con el \cref{tbl:calculo:jubilado:1}.
+El cálculo inicia con el \cref{tbl:calculo:jubilado:1}.
 Se debe notar un atajo utilizado en la notación para las expresiones de las dos condiciones, \tblcode{C1} y \tblcode{C2}.
 Se coloca únicamente, el nombre del campo, que se obtiene del parámetro \tblcode{Afiliado}, cuando la expresión buscada es una igualdad con los valores que se colocarán en las celdas debajo.
 Entonces, si el afiliado no tiene haber percibido actualizado, se retorna el valor calculado en el \cref{tbl:calculo:jubilado:sinhaber}. 

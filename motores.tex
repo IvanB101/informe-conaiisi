@@ -2,7 +2,7 @@
 
 La idea subyacente de los motores de reglas es externalizar la lógica del negocio. 
 Este puede ser visto como un intérprete sofisticado de sentencias \scode{if-then} (si-entonces). Estas sentencias, llamadas reglas, están compuestas por: una condición, que evalúa a verdadero o falso, y una acción, que es ejecutada en el caso de que la condición evalúe a verdadero \cite{qusay2005jsr94}.
-Asimismo, se suele hacer uso de un \acrfull{brms}, que consiste en un motor de reglas junto con herramientas para la gestión de las reglas de negocio.
+Asimismo, se suele hacer uso de un \acrshort{brms}, que consiste en un motor de reglas junto con herramientas para la gestión de las reglas de negocio.
 
 Dentro de los existentes, se realizó un relevamiento de algunos de los más utilizados en el entorno de desarrollo de Java, haciendo énfasis en los siguientes aspectos:
 \begin{enumerate*}[label=(\alph*)]
@@ -46,7 +46,7 @@ Para la integración (\cref{comp:integracion}) ambas opciones son comparables, p
 También se debe mencionar que ambos proyectos son -- hasta la última fecha de edición de esta sección, 19/07/2025 -- activamente mantenidos (\cref{comp:mantenimiento}).
 
 
-Además de los puntos en esta comparación, la principal diferencia entre ambas opciones fue que al trabajar con Drools se encontraron algunos problemas a la hora de gestionar las reglas. Teniendo en cuenta el objetivo \ref{obj:esp:intelegible}, se utilizaron los diagramas \acrshort{dmn} con expressiones escritas en \acrfull{feel}, los problemas fueron con los editores de reglas para este formato.
+Además de los puntos en esta comparación, la principal diferencia entre ambas opciones fue que al trabajar con Drools se encontraron algunos problemas a la hora de gestionar las reglas. Teniendo en cuenta el objetivo \ref{obj:esp:intelegible}, se utilizaron los diagramas \acrshort{dmn} con expresiones escritas en \acrfull{feel}, los problemas fueron con los editores de reglas para este formato.
 Utilizando Ubuntu 22.04.5 LTS, tanto en la extensión como la librería web de DMN Editor, se encontraron problemas para la importación de clases Java, modelos en otros archivos y declaraciones de tipos en expresiones. Estas funcionalidades funcionaban de forma errónea o no funcionaban en la PC utilizada para el desarrollo.
 
 A raíz de esta comparación, se considera que OpenL Tablets es la opción más apropiada para este trabajo.
