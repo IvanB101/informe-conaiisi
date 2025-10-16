@@ -11,7 +11,6 @@ La principal ventaja de esta opción es que resulta en un menor costo de comunic
 
 Considerando que las reglas serán utilizadas únicamente por {\SIDOSPU}, y estarán en un único proyecto, no pudiéndose sacar partido de los beneficios de un servicio web, se decidió utilizar la segunda opción.
 %
-%
 El diagrama en la \cref{fig:integration} muestra un esquema de la integración resultante.
 Los rectángulos representan una o varias clases Java, siendo la comunicación entre las mismas por llamado de sus respectivos métodos.
 
@@ -56,16 +55,13 @@ Para evitar contaminar con estos aspectos las reglas de cálculo, se crearon cla
     \item \scode{Numero}, para poder operar sobre valores de tipo \scode{BigDecimal} utilizando operadores tales como +, -, *, /, etc.
 \end{itemize}
 
-\subsection{Cuota de Voluntario adherente}
-
-Esta sección sirve dos propósitos.
-Por un lado describe cómo se especifica el cálculo de la cuota para voluntarios adherentes, y por otro lado introduce la sintaxis de las reglas.
+\subsection{Formato de las reglas}
 
 OpenL Tablets ofrece una variedad de tipos de tablas \cite{openl}.
 Aquí describiremos brevemente el formato de las tablas de decisión, el cual es suficiente para expresar la lógica de negocio del cálculo de la cuota de afiliación.
-%
+
 La tabla de decisión en el \cref{tbl:cambio:original} aborda el caso de los voluntarios adherentes.
-A continuación describimos su formato.
+El formato de esta tabla, descrito a continuación, es una versión simplificada del formato de las tablas de decisión, pero resulta suficiente para describir las reglas presentadas en este trabajo.
 
 \begin{table*}[h]
     \centering
@@ -78,32 +74,18 @@ La fila 1 contiene el encabezado de la tabla.
 En nuestro ejemplo: \tblcode{Rules} indica que la tabla contiene reglas,
 \tblcode{Numero} es el tipo de retorno y \tblcode{CalcularVoluntarioAdherente(Afiliacion afiliado, Valores valores)} es el nombre de la tabla con sus dos parámetros.
 
-La fila 2 define si la columna es una condición o valor de retorno, indicándose como  \tblcode{Cn} para la n-esima condición y \tblcode{RETn} para el n-esimo posible valor de retorno.
-En el ejemplo, se indica que las columnas 1 y 2 corresponden a condiciones, y que en la 3 está el valor de retorno.
+La fila 2 indica si las columnas forman parte de una condición, indicadas con \tblcode{Cn} para la n-esima condición o retorno \tblcode{RETn} para el n-esimo posible valor de retorno. Las expresiones que son evaluadas en cada condición o retorno se definen en la fila 3. En estas expresiones se puede hacer referencia a los parámetros de la regla, los campos de los mismo y los parámetros definidos en la fila 4. Ésta última especifica el tipo y nombre del parámetro.
 
-% La fila 3 especifica la condición para cada columna en formato BEX \cite{openl}.
-La fila 3 especifica las expresiones correspondientes a las condiciones o retornos para cada columna en lenguaje BEX \cite{openl}.
-Para \tblcode{C1} del ejemplo, se especifica \tblcode{subcategoria==valor}.
-El lado izquierdo es inferido por nombre de uno de los atributos del parámetro \tblcode{afiliado} y el derecho se define en la fila 4.
-
-La celda vacía para \tblcode{RET1} es un atajo a especificar ``monto''.
-Es decir, se retorna el resultado de evaluar la expresión de las filas cuyas condiciones son ciertas.
-
-La fila 4 define un parámetro por columna cuyos valores se definen a partir de la fila 6.
-Para \tblcode{C1} define nombre \tblcode{valor} y tipo \tblcode{String}, y para \tblcode{RET1} el nombre \tblcode{monto} de tipo \tblcode{Numero}.
+La regla del ejemplo cuenta con una condición, que compara la subcategoría del afiliado con un parámetro de nombre \tblcode{valor} y una expresión de retorno vacía, lo que es equivalente a retornar el parámetro de la columna, de nombre \tblcode{monto}.
 
 La fila 5 contiene nombres descriptivos para los parámetros, ignorados por el motor.
 
 Las filas 6, en adelante, especifican los valores concretos para los parámetros.
-También pueden contener expresiones matemáticas o llamadas a otras reglas.
-%
-Para \tblcode{C1}, las filas 6 y 7 indican dos valores, que corresponden a ascendientes de primer grado con más de diez años de antigüedad y su cónyuge, respectivamente.
-En ambos casos, el valor de \tblcode{RET1} es el mismo.
-Se calcula como la multiplicación de un coeficiente, obtenido a partir de la tabla \tblcode{CoeficienteVoluntario} (no incluida en esta publicación), según la subcategoría y edad del afiliado, por el \acrshort{cmmu20}.
-%
-La fila 8 de \tblcode{C1} se encuentra vacía.
-El motor interpreta que esta fila debe utilizarse por defecto para cualquier otro valor que no haya unificado aún.
-El valor de retorno varía en este caso, ya que se utiliza el \acrshort{cmmu} en la multiplicación.
+También pueden contener expresiones matemáticas o llamadas a otras reglas. En estas filas, en las columnas correspondientes a las condiciones, una celda vacía resulta en una condición que evalúa a verdadero.
+
+Para evaluar una regla se evalúan las condiciones utilizando por un lado los valores correspondientes a los parámetros definidos en la fila 1 y por otro los valores de la fila 6, para los parámetros definidos en la fila 4. En caso de evaluar todas las condiciones de a verdadero, se retorna el resultado de evaluar la expresión de retorno. En caso contrario se repite el proceso, pero utilizando los valores de la fila 7 en lugar de la 6. Este proceso continúa hasta todas las condiciones evalúen a verdader o no haya más filas con valores.
+
+Con esto en mente, se puede ver que el ejemplo define una regla de cálculo donde para dos posibles subcategorías se utiliza el valor de referencia \acrshort{cmmu20}, mientras que para todas las demás (dado que se emplea una celda vacía) se la \acrshort{cmmu}. Luego este valor es multiplicado por un coeficiente, que se obtiene llamando a otra regla.
 
 \subsection{Cuota de voluntario jubilado}
 
